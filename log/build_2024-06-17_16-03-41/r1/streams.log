@@ -1,0 +1,26 @@
+[0.018s] Invoking command in '/home/tong/r1_ws/build/r1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/tong/r1_ws/build/r1 -- -j12 -l12
+[0.060s] Invoked command in '/home/tong/r1_ws/build/r1' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/tong/r1_ws/build/r1 -- -j12 -l12
+[0.103s] Invoking command in '/home/tong/r1_ws/build/r1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/tong/r1_ws/build/r1
+[0.108s] -- Install configuration: ""
+[0.109s] -- Up-to-date: /home/tong/r1_ws/install/r1/lib/r1/robot_movement.py
+[0.110s] -- Up-to-date: /home/tong/r1_ws/install/r1/lib/r1/camera_node.py
+[0.110s] -- Installing: /home/tong/r1_ws/install/r1/lib/r1/odometry.py
+[0.111s] -- Up-to-date: /home/tong/r1_ws/install/r1/share/r1/launch
+[0.111s] -- Up-to-date: /home/tong/r1_ws/install/r1/share/r1/launch/camera.launch.py
+[0.112s] -- Up-to-date: /home/tong/r1_ws/install/r1/share/r1/launch/r1.launch.py
+[0.112s] -- Up-to-date: /home/tong/r1_ws/install/r1/share/ament_index/resource_index/package_run_dependencies/r1
+[0.115s] -- Up-to-date: /home/tong/r1_ws/install/r1/share/ament_index/resource_index/parent_prefix_path/r1
+[0.115s] -- Up-to-date: /home/tong/r1_ws/install/r1/share/r1/environment/ament_prefix_path.sh
+[0.117s] -- Up-to-date: /home/tong/r1_ws/install/r1/share/r1/environment/ament_prefix_path.dsv
+[0.118s] -- Up-to-date: /home/tong/r1_ws/install/r1/share/r1/environment/path.sh
+[0.119s] -- Up-to-date: /home/tong/r1_ws/install/r1/share/r1/environment/path.dsv
+[0.120s] -- Up-to-date: /home/tong/r1_ws/install/r1/share/r1/local_setup.bash
+[0.120s] -- Up-to-date: /home/tong/r1_ws/install/r1/share/r1/local_setup.sh
+[0.121s] -- Up-to-date: /home/tong/r1_ws/install/r1/share/r1/local_setup.zsh
+[0.121s] -- Up-to-date: /home/tong/r1_ws/install/r1/share/r1/local_setup.dsv
+[0.121s] -- Installing: /home/tong/r1_ws/install/r1/share/r1/package.dsv
+[0.122s] -- Up-to-date: /home/tong/r1_ws/install/r1/share/ament_index/resource_index/packages/r1
+[0.123s] -- Up-to-date: /home/tong/r1_ws/install/r1/share/r1/cmake/r1Config.cmake
+[0.124s] -- Up-to-date: /home/tong/r1_ws/install/r1/share/r1/cmake/r1Config-version.cmake
+[0.124s] -- Up-to-date: /home/tong/r1_ws/install/r1/share/r1/package.xml
+[0.125s] Invoked command in '/home/tong/r1_ws/build/r1' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/tong/r1_ws/build/r1

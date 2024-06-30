@@ -1,0 +1,28 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/tong/robocon_ws/install/realsense2_camera/include/**",
+        "/home/tong/robocon_ws/install/realsense2_camera_msgs/include/**",
+        "/home/tong/robocon_ws/install/depthimage_to_laserscan/include/**",
+        "/home/tong/ros2_ws/install/realsense2_camera/include/**",
+        "/home/tong/ros2_ws/install/realsense2_camera_msgs/include/**",
+        "/home/tong/ros2_ws/install/pointcloud_to_laserscan/include/**",
+        "/home/tong/ros2_ws/install/depthimage_to_laserscan/include/**",
+        "/opt/ros/foxy/include/**",
+        "/home/tong/r1_ws/src/r1/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
