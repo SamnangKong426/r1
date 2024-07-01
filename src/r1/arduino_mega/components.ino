@@ -73,8 +73,6 @@ void readSbus() {
   }
 }
 
-void 
-
 //void switchE() {
 //    // control switch
 //  if (data.ch[4] > mid_val) {

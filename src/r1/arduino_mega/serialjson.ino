@@ -1,5 +1,4 @@
 void deserialJson(String input) {
-
   DeserializationError error = deserializeJson(doc, input);
 
   if (error) {
