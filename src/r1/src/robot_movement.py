@@ -17,7 +17,7 @@ class VelocityTransformer(Node):
             10)
         self.data = {
                 #For Contol Velocity
-                "Position": [0, 0, 0]     
+                "Cmd_vel": [0, 0, 0]     
             }
         self.serial_arduino = ComArduino()
         th.Thread(target=self.serial_arduino.ar_read_from_port).start()
