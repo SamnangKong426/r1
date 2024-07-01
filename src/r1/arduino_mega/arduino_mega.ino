@@ -51,57 +51,57 @@ void setup() {
 }
 
 void loop() {
-  // readSbus();
-  // // Switch G
-  // if (data.ch[10] > 0 && data.ch[10] < 1700) {
-  //   // Joystick X1 Y1 X2
-  //   remoteControl(data.ch[1], data.ch[0], data.ch[2]);
+  readSbus();
+  // Switch G
+  if (data.ch[10] > 0 && data.ch[10] < 1700) {
+    // Joystick X1 Y1 X2
+    remoteControl(data.ch[1], data.ch[0], data.ch[2]);
 
-  //   // Button A
-  //   if (data.ch[4] > 0 && data.ch[4] < 1700) {
-  //     digitalWrite(grip1, 1);
-  //     digitalWrite(grip2, 1);
-  //     delay(50);
-  //     digitalWrite(plant, 0);
-  //   }
+    // Button A
+    if (data.ch[4] > 0 && data.ch[4] < 1700) {
+      digitalWrite(grip1, 1);
+      digitalWrite(grip2, 1);
+      delay(50);
+      digitalWrite(plant, 0);
+    }
     
-  //   // Button B
-  //   if (data.ch[5] >= 1) {
-  //     digitalWrite(plant, 1);
-  //     delay(50);
-  //     digitalWrite(grip1, 0);
-  //     delay(250);
-  //   } else if (data.ch[5] <= -1) {
-  //     digitalWrite(plant, 0);
-  //   }
+    // Button B
+    if (data.ch[5] >= 1) {
+      digitalWrite(plant, 1);
+      delay(50);
+      digitalWrite(grip1, 0);
+      delay(250);
+    } else if (data.ch[5] <= -1) {
+      digitalWrite(plant, 0);
+    }
 
-  //   // Button C
-  //   if (data.ch[6] > 0 && data.ch[6] < 1700) {
-  //     digitalWrite(plant, 1);
-  //     delay(50);
-  //     digitalWrite(grip2, 0);
-  //   }
+    // Button C
+    if (data.ch[6] > 0 && data.ch[6] < 1700) {
+      digitalWrite(plant, 1);
+      delay(50);
+      digitalWrite(grip2, 0);
+    }
 
-  //   // Button D
-  //   if (data.ch[7] > 0 && data.ch[7] < 1700) {
-  //     digitalWrite(grap, 1);
-  //   } else {
-  //     digitalWrite(grap, 0);
-  //   }
+    // Button D
+    if (data.ch[7] > 0 && data.ch[7] < 1700) {
+      digitalWrite(grap, 1);
+    } else {
+      digitalWrite(grap, 0);
+    }
 
-  //   // Switch H
-  //   if (data.ch[11] > 0 && data.ch[11] < 1700) {
-  //     digitalWrite(relay, HIGH);
-  //     shotBall(true, data.ch[8]);
-  //   } else {
-  //     digitalWrite(relay, LOW);
-  //     shotBall(false, 0);
-  //   }
+    // Switch H
+    if (data.ch[11] > 0 && data.ch[11] < 1700) {
+      digitalWrite(relay, HIGH);
+      shotBall(true, data.ch[8]);
+    } else {
+      digitalWrite(relay, LOW);
+      shotBall(false, 0);
+    }
 
 
-  // } else {
-  //   remoteControl(0, 0, 0);
-  // }
+  } else {
+    remoteControl(0, 0, 0);
+  }
 }
 
 //=============================================================================================
