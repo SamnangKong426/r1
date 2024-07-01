@@ -107,7 +107,6 @@ void pos_run(double vx, double vy, double w) {
 }
 
 float map1(float Input, float Min_Input , float Max_Input , float Min_Output, float Max_Output) {
-
   return (float) ((Input - Min_Input) * (Max_Output - Min_Output) / (Max_Input - Min_Input) + Min_Output);
 }
 

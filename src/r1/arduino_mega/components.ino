@@ -15,7 +15,7 @@ void init_hardware() {
   pinMode(grip2, OUTPUT);
 
   digitalWrite(grip1, 0);
-  digitalWrite(plant, 0);
+  digitalWrite(plant, 1);
   digitalWrite(grap, 0);
   digitalWrite(grip2, 0);
   digitalWrite(gas, 0);

@@ -18,6 +18,7 @@ class VelocityTransformer(Node):
         self.publisher = self.create_publisher(String, 'arduinoController', 10)
         self.timer_period = 0.01
         self.timer = self.create_timer(self.timer_period, self.timer_callback)
+        
         self.data = {
             "cmd_vel": [0, 0, 0] # [linear.x, linear.y, angular.z]
         }
@@ -27,7 +28,7 @@ class VelocityTransformer(Node):
     def listener_callback(self, msg):
         self.data["cmd_vel"] = [msg.linear.x, msg.linear.y, msg.angular.z]
         self.serial_arduino.arser.write(str(self.data).encode())
-        time.sleep(0.03)
+        time.sleep(0.3)
         self.get_logger().info("I heard: '%s'" % str(self.data))
 
 
@@ -35,7 +36,6 @@ class VelocityTransformer(Node):
         msg = String()
         msg.data = self.serial_arduino.msg
         self.publisher.publish(msg)
-
 
 def main(args=None):
     rclpy.init(args=args)
