@@ -63,7 +63,7 @@ void loop() {
     }
     
     // Button B
-    if (data.ch[5] >= 1 && !maxCh4) {
+    if (data.ch[5] >= 1) {
       digitalWrite(plant, 1);
       delay(50);
       digitalWrite(grip1, 0);
