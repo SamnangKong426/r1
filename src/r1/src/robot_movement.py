@@ -24,8 +24,6 @@ class VelocityTransformer(Node):
         time.sleep(1)
 
     def listener_callback(self, msg):
-        print("Listener Callback")
-        # Transform the incoming Twist message here if necessary
         self.data["Position"] = [msg.linear.x, msg.linear.y, msg.angular.z]
         self.serial_arduino.arser.write(str(self.data).encode())
         self.get_logger().info('I heard: "%s"' % str(self.data))
