@@ -18,6 +18,7 @@ void init_hardware() {
   digitalWrite(plant, 0);
   digitalWrite(grap, 0);
   digitalWrite(grip2, 0);
+  digitalWrite(gas, 0);
 
   digitalWrite(relay, LOW);
 
@@ -71,6 +72,8 @@ void readSbus() {
     /* Set the SBUS TX data to the received data */
   }
 }
+
+void 
 
 //void switchE() {
 //    // control switch
