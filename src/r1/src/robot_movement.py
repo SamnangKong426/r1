@@ -24,9 +24,9 @@ class VelocityTransformer(Node):
         time.sleep(1)
 
     def listener_callback(self, msg):
-        self.data["Position"] = [msg.linear.x, msg.linear.y, msg.angular.z]
+        self.data["Cmd_vel"] = [msg.linear.x, -msg.linear.y, -msg.angular.z]
         self.serial_arduino.arser.write(str(self.data).encode())
-        self.get_logger().info('I heard: "%s"' % str(self.data))
+        # self.get_logger().info('I heard: "%s"' % str(self.data))
         time.sleep(0.3)
         
 def main(args=None):

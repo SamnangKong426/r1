@@ -64,7 +64,7 @@ void remoteControl(int _vx, int _vy, int _w) {
   double w1, w2, w3, w4;
   float vx = _vx;
   float vy = _vy;
-  float w = map1(_w, -1666, 1666, 2, -2);
+  float w = map1(_w, -1666, 1666, 1, -1);
 
   // debug.print("Vx: ");
   // debug.print(vx);
