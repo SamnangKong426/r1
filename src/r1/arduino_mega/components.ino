@@ -60,10 +60,10 @@ void readSbus() {
     /* Display the received data */
     for (int8_t i = 0; i < data.NUM_CH; i++) {
       data.ch[i] = map(data.ch[i], 282, 1722, -1500, 1500);
-      debug.print(data.ch[i]);
-      debug.print("\t");
+      // debug.print(data.ch[i]);
+      // debug.print("\t");
     }
-    debug.println();
+    // debug.println();
     // remoteControl();
     // movement();
     // switchE();

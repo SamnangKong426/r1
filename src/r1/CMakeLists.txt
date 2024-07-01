@@ -10,8 +10,14 @@ find_package(sensor_msgs REQUIRED)
 # Install the Python script
 install(PROGRAMS
   src/robot_movement.py
-  src/camera_node.py
-  src/odometry.py
+  src/serialarduino.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+
+# If serialarduino is a directory with __init__.py and other Python files
+install(
+  DIRECTORY src
   DESTINATION lib/${PROJECT_NAME}
 )
 

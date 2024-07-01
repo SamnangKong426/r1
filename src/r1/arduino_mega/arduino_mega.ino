@@ -51,6 +51,8 @@ void setup() {
 }
 
 void loop() {
+  readSerial();
+  remoteControl(vx, vy, w);
   readSbus();
   // Switch G
   if (data.ch[10] > 0 && data.ch[10] < 1700) {
@@ -113,8 +115,6 @@ void loop() {
       digitalWrite(relay, LOW);
       shotBall(false, 0);
     }
-
-
   } else {
     remoteControl(0, 0, 0);
   }
