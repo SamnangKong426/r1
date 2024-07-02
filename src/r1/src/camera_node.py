@@ -24,10 +24,8 @@ class T265Publisher(Node):
     def timer_callback(self):
         frames = self.pipeline.wait_for_frames()
         pose_frame = frames.get_pose_frame()
-
         if pose_frame:
             data = pose_frame.get_pose_data()
-
             imu_msg = Imu()
             imu_msg.orientation.x = data.rotation.x
             imu_msg.orientation.y = data.rotation.y
@@ -48,14 +46,8 @@ class T265Publisher(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-
     t265_publisher = T265Publisher()
-
     rclpy.spin(t265_publisher)
-
-    # Destroy the node explicitly
-    # (optional - otherwise it will be done automatically
-    # when the garbage collector destroys the node object)
     t265_publisher.destroy_node()
     rclpy.shutdown()
 
