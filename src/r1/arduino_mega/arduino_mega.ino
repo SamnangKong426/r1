@@ -51,7 +51,6 @@ void setup() {
 
 void loop() {
   realSerial();
-  remoteControl(vx, vy, w);
   // readSbus();
   // Switch G
   // if (data.ch[10] > 0 && data.ch[10] < 1700) {

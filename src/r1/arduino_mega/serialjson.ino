@@ -27,6 +27,7 @@ void realSerial() {
   if (Serial.available() > 0) {
     String input = Serial.readString();
     deserialJson(input);
-    // debug.println(input);
+    debug.println(input);
+    remoteControl(vx, vy, w);
   }
 }
