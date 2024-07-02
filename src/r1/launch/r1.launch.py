@@ -38,7 +38,15 @@ def generate_launch_description():
         output='screen',
     )
 
+    robot_movement = Node(
+        package=package_name,
+        executable='robot_movement.py',
+        name='robot_movement',
+        output='screen',
+    )
+
     return LaunchDescription([
         camera,
-        odometry
+        odometry,
+        robot_movement,
     ])

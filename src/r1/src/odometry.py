@@ -4,7 +4,6 @@ from rclpy.node import Node
 from std_msgs.msg import String
 from geometry_msgs.msg import Point, Twist, PoseStamped
 import math as m
-import json
 
 class OdometryNode(Node):
     def __init__(self):
@@ -56,7 +55,7 @@ class OdometryNode(Node):
     def next_vel(self, vx, vy, yaw):
         next_vx = (vx * m.cos(m.radians(yaw))) + (vy * m.sin(m.radians(yaw)))
         next_vy = -(vx * m.sin(m.radians(yaw))) + (vy * m.cos(m.radians(yaw)))
-        print("Next_vx: {}, Next_vy: {}".format(next_vx, next_vy))
+        # print("Next_vx: {}, Next_vy: {}".format(next_vx, next_vy))
         return next_vx, next_vy
     
     def distance(self, x1, y1, x2, y2):
@@ -69,7 +68,7 @@ class OdometryNode(Node):
         pos_x = - position.x * 1000
         pos_z = - position.y * 1000
         roll, _, _ = self.quaternion_to_rpy(orientation.x, orientation.y, orientation.z, orientation.w)
-        print("Position: {}, {}, {}".format(pos_x, pos_z, roll))
+        # print("Position: {}, {}, {}".format(pos_x, pos_z, roll))
         dx = self.pos_msg.x - pos_z
         dy = self.pos_msg.y - pos_x  
         dw = self.pos_msg.z - roll
@@ -78,21 +77,11 @@ class OdometryNode(Node):
         # If the robot is close enough to the target, stop moving
         if d < 10 and abs(dw) < 10:
             self.Ix = self.Iy = self.Iw = 0
-            print("Stop")
+            # print("Stop")
             return 0.0, 0.0, 0.0
         # Calculate velocities based on distances to target
-        vx = dx * 0.5
-        vy = dy * 0.5
-        w = dw * 0.005
 
-        # vx = min(vx,500)
-        # vx = max(vx,-500)
-        # vy = min(vy,500)
-        # vy = max(vy,-500)
-        # w = min(w, 25)
-        # w = max(w, -25)
-
-        """Px = dx * 0.5
+        Px = dx * 0.5
         self.Ix = (self.Ix + dx) * 0.2
         Py = dy * 0.5
         self.Iy = (self.Iy + dy) * 0.2
@@ -107,8 +96,8 @@ class OdometryNode(Node):
         vy = max(vy,-800)
         w = min(w, 45)
         w = max(w, -45)
-        """
-        # vx, vy = self.next_vel(vx, vy, roll)
+
+        vx, vy = self.next_vel(vx, vy, roll)
         # self.get_logger().info('Velocity : %s, %s, %s' % (vx, vy, w))
         return float(vx), float(vy), float(w)
 
