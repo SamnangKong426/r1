@@ -4,7 +4,7 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Imu
 from geometry_msgs.msg import PoseStamped
-import pyrealsense2.pyrealsense2 as rs
+import pyrealsense2 as rs
 
 class T265Publisher(Node):
 
