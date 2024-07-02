@@ -20,7 +20,7 @@ def generate_launch_description():
 
     camera_t265 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory(package_name), 'launch', 'camera.launch.py')
+            os.path.join(get_package_share_directory(package_name), 'launch', 'rs_launch.py')
         )
     )
 
