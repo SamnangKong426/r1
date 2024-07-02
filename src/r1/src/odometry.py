@@ -13,7 +13,7 @@ class OdometryNode(Node):
         self.publisher = self.create_publisher(Twist, '/cmd_vel', 10)
         self.subscription = self.create_subscription(
             Odometry,
-            '/camera/odom/sample',
+            '/camera/pose/sample',
             self.listener_callback,
             10
         )
@@ -36,6 +36,7 @@ class OdometryNode(Node):
         self.w = 0.0
 
     def listener_callback(self, msg: Odometry):
+        self.get_logger().info('I heard: "%s"' % str(msg))
         self.pos_msg = msg
         vx, vy, w = self.set_location(self.x, self.y, self.w)
         twist = Twist()
