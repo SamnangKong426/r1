@@ -47,7 +47,7 @@ void setup() {
   delay(500);
   debug.println("Start");
   digitalWrite(gas, 1);
-  pos_run(0, 100, 0);
+  pos_run(0, 0, 10);
   delay(3000);
   pos_run(0, 0, 0);
 }

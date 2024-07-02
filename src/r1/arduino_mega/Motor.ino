@@ -96,10 +96,10 @@ void remoteControl(int _vx, int _vy, int _w) {
 void pos_run(double vx, double vy, double w) {
   double w1, w2, w3, w4;
 
-  w1 = degrees(((vx - vy) - (w * (lx + ly))) / r);
-  w2 = degrees(((vx + vy) + (w * (lx + ly))) / r);
-  w3 = degrees(((vx + vy) - (w * (lx + ly))) / r);
-  w4 = degrees(((vx - vy) + (w * (lx + ly))) / r);
+  w1 = degrees(((vx + vy) - (w * (lx + ly))) / r);
+  w2 = degrees(((vx - vy) + (w * (lx + ly))) / r);
+  w3 = degrees(((vx - vy) - (w * (lx + ly))) / r);
+  w4 = degrees(((vx + vy) + (w * (lx + ly))) / r);
   run_speed(1, w1);
   run_speed(2, -w2);
   run_speed(3, w3);
