@@ -47,10 +47,13 @@ void setup() {
   delay(500);
   debug.println("Start");
   digitalWrite(gas, 1);
+  remoteControl(100, 0, 0);
+  delay(3000);
+  remoteControl(0, 0, 0);
 }
 
 void loop() {
-  realSerial();
+  // realSerial();
   // readSbus();
   // Switch G
   // if (data.ch[10] > 0 && data.ch[10] < 1700) {
