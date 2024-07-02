@@ -28,6 +28,6 @@ void realSerial() {
     String input = Serial.readString();
     deserialJson(input);
     debug.println(input);
-    posrun(vx, vy, w);
+    pos_run(vx, vy, w);
   }
 }
