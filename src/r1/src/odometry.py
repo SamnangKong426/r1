@@ -86,7 +86,7 @@ class OdometryNode(Node):
         Py = dy * 0.5
         self.Iy = (self.Iy + dy) * 0.2
         Pw = dw * 0.005
-        self.Iw = (self.Iw + dw) * 0.005
+        self.Iw = (self.Iw + dw) * 0.01
         vx = Px+ self.Ix
         vy = Py+ self.Iy
         w = Pw + self.Iw
