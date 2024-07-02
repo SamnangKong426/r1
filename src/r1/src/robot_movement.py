@@ -9,7 +9,6 @@ import time
 class VelocityTransformer(Node):
     def __init__(self):
         super().__init__('velocity_transformer')
-        # self.publisher_ = self.create_publisher(Twist, 'transformed_cmd_vel', 10)
         self.subscription = self.create_subscription(
             Twist,
             'cmd_vel',
@@ -27,7 +26,7 @@ class VelocityTransformer(Node):
         self.data["Cmd_vel"] = [msg.linear.x, -msg.linear.y, -msg.angular.z]
         self.serial_arduino.arser.write(str(self.data).encode())
         self.get_logger().info('I heard: "%s"' % str(self.data))
-        time.sleep(0.3)
+        time.sleep(0.2)
         
 def main(args=None):
     rclpy.init(args=args)
