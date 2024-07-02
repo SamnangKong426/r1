@@ -31,8 +31,6 @@ def generate_launch_description():
         output='screen',
     )
 
-
-
     return LaunchDescription([
         camera_t265,
         odometry_node,
