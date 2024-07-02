@@ -1,0 +1,26 @@
+-- Install configuration: ""
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/robot_movement.py
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/serialarduino.py
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/src
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/src/odometry.py
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/src/serialarduino.py
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/src/robot_movement.py
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/src/teleop_robot.py
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/launch
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/launch/camera.launch.py
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/launch/r1.launch.py
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/ament_index/resource_index/package_run_dependencies/r1
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/ament_index/resource_index/parent_prefix_path/r1
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/environment/ament_prefix_path.sh
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/environment/path.sh
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/environment/path.dsv
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/local_setup.bash
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/local_setup.sh
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/local_setup.zsh
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/local_setup.dsv
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/package.dsv
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/ament_index/resource_index/packages/r1
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/cmake/r1Config.cmake
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/cmake/r1Config-version.cmake
+-- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/package.xml
