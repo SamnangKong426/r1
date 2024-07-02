@@ -18,20 +18,27 @@ def generate_launch_description():
 
     package_name = "r1"
 
-    camera_t265 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory("realsense2_camera"), 'launch', 'rs_launch.py')
-        )
+    # camera_t265 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         os.path.join(get_package_share_directory("realsense2_camera"), 'launch', 'rs_launch.py')
+    #     )
+    # )
+
+    camera = Node(
+        package=package_name,
+        executable='camera_node.py',
+        name='camera',
+        output='screen',
     )
 
-    odometry_node = Node(
-        package='r1',
+    odometry = Node(
+        package=package_name,
         executable='odometry.py',
         name='odometry',
         output='screen',
     )
 
     return LaunchDescription([
-        camera_t265,
-        odometry_node,
+        camera,
+        odometry
     ])
