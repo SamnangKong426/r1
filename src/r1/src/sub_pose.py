@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
-from geometry_msgs.msg import Twist
+from geometry_msgs.msg import Odometry
 
 class CameraPoseSubscriber(Node):
     def __init__(self):
         super().__init__('camera_pose_subscriber')
         self.subscription = self.create_subscription(
-            Twist,
+            Odometry,
             '/camera/pose/sample',
             self.listener_callback,
             10)

@@ -13,6 +13,7 @@ install(PROGRAMS
   src/serialarduino.py
   src/odometry.py
   src/teleop_robot.py
+  src/sub_pose.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
