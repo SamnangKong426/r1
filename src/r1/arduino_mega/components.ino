@@ -1,7 +1,7 @@
 void initSerial() {
   /* Serial to display data */
   debug.begin(115200);
-  debug.setTimeout(10);
+  debug.setTimeout(100);
   serialM.begin(115200);
   serialM.setTimeout(100);
   sbus_rx.Begin();
