@@ -63,8 +63,8 @@ class OdometryNode(Node):
         return m.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
     
     def set_location(self, x, y, w):
-        position = self.pos_msg.pose.pose.position
-        orientation = self.pos_msg.pose.pose.orientation
+        position = self.poseStamped_msg.pose.pose.position
+        orientation = self.poseStamped_msg.pose.pose.orientation
         # covert m to mm
         pos_x = - position.x * 1000
         pos_z = - position.y * 1000
