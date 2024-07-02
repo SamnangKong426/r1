@@ -25,8 +25,8 @@
 #define RPWM 9
 JsonDocument doc;
 
-float lx = 250;
-float ly = 250;
+float lx = 225;
+float ly = 179.55;
 float r = 63.5;
 
 int gun_ang = 0;
