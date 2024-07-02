@@ -65,8 +65,8 @@ class OdometryNode(Node):
         position = self.poseStamped_msg.pose.position
         orientation = self.poseStamped_msg.pose.orientation
         # covert m to mm
-        pos_x = - position.z * 1000
-        pos_z = - position.x * 1000
+        pos_x = position.z * 1000
+        pos_z = position.x * 1000
         roll, _, _ = self.quaternion_to_rpy(orientation.x, orientation.y, orientation.z, orientation.w)
         # print("Position: {}, {}, {}".format(pos_x, pos_z, roll))
         dx = self.pos_msg.x - pos_x
