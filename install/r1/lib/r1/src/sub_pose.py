@@ -10,13 +10,11 @@ class CameraPoseSubscriber(Node):
             Odometry,
             '/camera/pose/sample',
             self.listener_callback,
-            200)
+            10)
         self.subscription  # prevent unused variable warning
-        print("Subscribed to /camera/pose/sample")
 
     def listener_callback(self, msg):
-        position = msg.pose.pose.position
-        print(f"Received pose: Position = x: {position.x}, y: {position.y}, z: {position.z}")
+        self.get_logger().info('Received pose: "%s"' % msg)
 
 def main(args=None):
     rclpy.init(args=args)

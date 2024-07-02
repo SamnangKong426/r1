@@ -1,0 +1,34 @@
+[0.008s] Invoking command in '/home/tong/robocon_ws/r1_ws/build/r1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/tong/robocon_ws/r1_ws/build/r1 -- -j12 -l12
+[0.022s] Invoked command in '/home/tong/robocon_ws/r1_ws/build/r1' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/tong/robocon_ws/r1_ws/build/r1 -- -j12 -l12
+[0.037s] Invoking command in '/home/tong/robocon_ws/r1_ws/build/r1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/tong/robocon_ws/r1_ws/build/r1
+[0.041s] -- Install configuration: ""
+[0.041s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/robot_movement.py
+[0.041s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/serialarduino.py
+[0.041s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/odometry.py
+[0.041s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/teleop_robot.py
+[0.041s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/sub_pose.py
+[0.041s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/src
+[0.041s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/src/odometry.py
+[0.041s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/src/serialarduino.py
+[0.041s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/src/robot_movement.py
+[0.042s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/src/sub_pose.py
+[0.042s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/src/teleop_robot.py
+[0.042s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/launch
+[0.042s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/launch/camera.launch.py
+[0.042s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/launch/r1.launch.py
+[0.042s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/ament_index/resource_index/package_run_dependencies/r1
+[0.042s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/ament_index/resource_index/parent_prefix_path/r1
+[0.042s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/environment/ament_prefix_path.sh
+[0.042s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/environment/ament_prefix_path.dsv
+[0.042s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/environment/path.sh
+[0.042s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/environment/path.dsv
+[0.042s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/local_setup.bash
+[0.042s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/local_setup.sh
+[0.042s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/local_setup.zsh
+[0.042s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/local_setup.dsv
+[0.042s] -- Installing: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/package.dsv
+[0.042s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/ament_index/resource_index/packages/r1
+[0.042s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/cmake/r1Config.cmake
+[0.042s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/cmake/r1Config-version.cmake
+[0.043s] -- Up-to-date: /home/tong/robocon_ws/r1_ws/install/r1/share/r1/package.xml
+[0.043s] Invoked command in '/home/tong/robocon_ws/r1_ws/build/r1' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/tong/robocon_ws/r1_ws/build/r1

@@ -13,7 +13,7 @@ class OdometryNode(Node):
         self.publisher = self.create_publisher(Twist, '/cmd_vel', 10)
         self.subscription = self.create_subscription(
             Odometry,
-            '/camera/t265/odom/sample',
+            '/camera/pose/sample',
             self.listener_callback,
             10
         )
@@ -34,8 +34,10 @@ class OdometryNode(Node):
         self.x = 500.0
         self.y = 0.0
         self.w = 0.0
+        print("Odometry Node is running")
 
     def listener_callback(self, msg: Odometry):
+        self.get_logger().info('I heard: "%s"' % str(msg))
         self.pos_msg = msg
         vx, vy, w = self.set_location(self.x, self.y, self.w)
         twist = Twist()
@@ -48,6 +50,7 @@ class OdometryNode(Node):
         self.x = msg.x  # next position x
         self.y = msg.y  # next position y
         self.w = msg.z  # next position w
+        print("listen: {}, {}, {}".format(self.x, self.y, self.w))
 
     def quaternion_to_rpy(self, rs_x, rs_y, rs_z, rs_w):
         w = rs_w
