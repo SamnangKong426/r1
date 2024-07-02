@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tong/r1_ws/src/r1
+CMAKE_SOURCE_DIR = /home/tong/robocon_ws/r1_ws/src/r1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tong/r1_ws/build/r1
+CMAKE_BINARY_DIR = /home/tong/robocon_ws/r1_ws/build/r1
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -82,14 +82,14 @@ clean: CMakeFiles/r1_uninstall.dir/clean
 CMakeFiles/uninstall.dir/all: CMakeFiles/r1_uninstall.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tong/r1_ws/build/r1/CMakeFiles --progress-num= "Built target uninstall"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tong/robocon_ws/r1_ws/build/r1/CMakeFiles --progress-num= "Built target uninstall"
 .PHONY : CMakeFiles/uninstall.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/uninstall.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tong/r1_ws/build/r1/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tong/robocon_ws/r1_ws/build/r1/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/uninstall.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tong/r1_ws/build/r1/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tong/robocon_ws/r1_ws/build/r1/CMakeFiles 0
 .PHONY : CMakeFiles/uninstall.dir/rule
 
 # Convenience name for target.
@@ -108,14 +108,14 @@ CMakeFiles/uninstall.dir/clean:
 CMakeFiles/r1_uninstall.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/r1_uninstall.dir/build.make CMakeFiles/r1_uninstall.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/r1_uninstall.dir/build.make CMakeFiles/r1_uninstall.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tong/r1_ws/build/r1/CMakeFiles --progress-num= "Built target r1_uninstall"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tong/robocon_ws/r1_ws/build/r1/CMakeFiles --progress-num= "Built target r1_uninstall"
 .PHONY : CMakeFiles/r1_uninstall.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/r1_uninstall.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tong/r1_ws/build/r1/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tong/robocon_ws/r1_ws/build/r1/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/r1_uninstall.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tong/r1_ws/build/r1/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tong/robocon_ws/r1_ws/build/r1/CMakeFiles 0
 .PHONY : CMakeFiles/r1_uninstall.dir/rule
 
 # Convenience name for target.

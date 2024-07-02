@@ -1,0 +1,6 @@
+[31mCMake Error at cmake_install.cmake:50 (file):
+  file INSTALL cannot find
+  "/home/tong/robocon_ws/r1_ws/src/r1/src/serialarduino": No such file or
+  directory.
+
+[0m
