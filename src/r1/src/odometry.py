@@ -22,8 +22,12 @@ class OdometryNode(Node):
             self.locate_cmd_callback,
             10
         )
-        # robot location
-        self.pos_msg = PoseStamped()
+        self.Ix = 0
+        self.Iy = 0
+        self.Iw = 0
+        self.pos_msg = Point()
+        self.poseStamped_msg = PoseStamped()
+
     def listener_callback(self, msg: PoseStamped):
         # self.get_logger().info('I heard: "%s"' % str(msg))
         self.poseStamped_msg = msg
