@@ -28,6 +28,6 @@ void realSerial() {
     String input = Serial.readString();
     deserialJson(input);
     debug.println(input);
-    remoteControl(vx, vy, w);
+    posrun(vx, vy, w);
   }
 }

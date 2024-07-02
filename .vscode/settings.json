@@ -11,5 +11,8 @@
         "/opt/ros/noetic/lib/python3/dist-packages",
         "/opt/ros/foxy/lib/python3.8/site-packages"
     ],
-    "cmake.sourceDirectory": "/home/tong/robocon_ws/r1_ws/src/r1"
+    "cmake.sourceDirectory": "/home/tong/robocon_ws/r1_ws/src/r1",
+    "files.associations": {
+        "*.ipp": "cpp"
+    }
 }
