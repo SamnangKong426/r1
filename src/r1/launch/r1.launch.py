@@ -37,16 +37,16 @@ def generate_launch_description():
         output='screen',
     )
 
-    odometry_node = Node(
-        package='r1',
-        executable='odometry.py',
-        name='odometry',
-        output='screen',
-    )
+    # odometry_node = Node(
+    #     package='r1',
+    #     executable='odometry.py',
+    #     name='odometry',
+    #     output='screen',
+    # )
 
 
 
     return LaunchDescription([
         camera_node,
-        odometry_node,
+        # odometry_node,
     ])
