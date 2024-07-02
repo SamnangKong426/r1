@@ -46,6 +46,8 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/r1" TYPE PROGRAM FILES
     "/home/tong/robocon_ws/r1_ws/src/r1/src/robot_movement.py"
     "/home/tong/robocon_ws/r1_ws/src/r1/src/serialarduino.py"
+    "/home/tong/robocon_ws/r1_ws/src/r1/src/odometry.py"
+    "/home/tong/robocon_ws/r1_ws/src/r1/src/teleop_robot.py"
     )
 endif()
 

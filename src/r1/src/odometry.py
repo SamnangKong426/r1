@@ -13,7 +13,7 @@ class OdometryNode(Node):
         self.publisher = self.create_publisher(Twist, '/cmd_vel', 10)
         self.subscription = self.create_subscription(
             Odometry,
-            '/camera/t265/odom/sample',
+            '/camera/odom/sample',
             self.listener_callback,
             10
         )
