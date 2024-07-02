@@ -11,6 +11,8 @@ find_package(sensor_msgs REQUIRED)
 install(PROGRAMS
   src/robot_movement.py
   src/serialarduino.py
+  src/odometry.py
+  src/teleop_robot.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
