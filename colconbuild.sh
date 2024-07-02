@@ -1,3 +1,3 @@
 colcon build
-source ~/r1_wsinstall/setup.bash
+source ~/r1_ws/install/setup.bash
 ~                          
