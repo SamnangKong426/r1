@@ -69,8 +69,8 @@ class OdometryNode(Node):
         pos_z = - position.x * 1000
         roll, _, _ = self.quaternion_to_rpy(orientation.x, orientation.y, orientation.z, orientation.w)
         # print("Position: {}, {}, {}".format(pos_x, pos_z, roll))
-        dx = self.pos_msg.x - pos_z
-        dy = self.pos_msg.y - pos_x  
+        dx = self.pos_msg.x - pos_x
+        dy = self.pos_msg.y - pos_z
         dw = self.pos_msg.z - roll
         # Calculate distances to target
         d = self.distance(0, 0, dx, dy)
