@@ -46,21 +46,21 @@ class T265Publisher(Node):
             #     print("confidence: 3")
             #     self.first = False
             
-            roll, picth , yaw = self.quaternion_to_rpy(data.rotation.x, data.rotation.y, data.rotation.z, data.rotation.w)
-            # print("roll: {}, pitch: {}, yaw: {}".format(roll, picth, yaw))
-            
+            roll, pitch, yaw = self.quaternion_to_rpy(data.rotation.x, data.rotation.y, data.rotation.z, data.rotation.w)
+            # print("roll: {}, pitch: {}, yaw: {}".format(roll, pitch, yaw))
+
             pitch_msg = Float32()
-            pitch_msg.data = picth
-            self.publisher_picth.publish(pitch_msg)
+            pitch_msg.data = pitch
+            self.publisher_pitch.publish(pitch_msg)
 
             self.kf.predict()
             self.kf.update(pitch)
             pitch = self.kf.state
-            
+
             pitchKalman_msg = Float32()
             pitchKalman_msg.data = pitch
-            self.publisher_picthKalman.publish(pitchKalman_msg)
-        
+            self.publisher_pitchKalman.publish(pitchKalman_msg)
+            
             imu_msg = Imu()
             imu_msg.orientation.x = data.rotation.x
             imu_msg.orientation.y = data.rotation.y
