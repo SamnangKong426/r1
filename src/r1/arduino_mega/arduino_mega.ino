@@ -55,8 +55,8 @@ void loop() {
   // Switch G
   if (data.ch[10] > 0 && data.ch[10] < 1700) {
     // Joystick X1 Y1 X2
-    // remoteControl(data.ch[1], data.ch[0], data.ch[2]);
-    remoteControl(data.ch[0], -data.ch[1], data.ch[2]);
+    remoteControl(data.ch[1], data.ch[0], data.ch[2]);
+    // remoteControl(data.ch[0], -data.ch[1], data.ch[2]);
 
     // // Button A
     // if (data.ch[4] > 0 && data.ch[4] < 1700 && !buttonA) {
