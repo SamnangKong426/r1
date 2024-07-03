@@ -50,9 +50,10 @@ class OdometryNode(Node):
         x = -rs_z
         y = rs_x
         z = -rs_y
+
         pitch =  -m.asin(2.0 * (x*z - w*y)) * 180.0 / m.pi
         roll  =  m.atan2(2.0 * (w*x + y*z), w*w - x*x - y*y + z*z) * 180.0 / m.pi
-        yaw   =  -m.atan2(2.0 * (w*z + x*y), w*w + x*x - y*y - z*z) * 180.0 / m.pi
+        yaw   =  m.atan2(2.0 * (w*z + x*y), w*w + x*x - y*y - z*z) * 180.0 / m.pi
         # print("RPY [deg]: Roll: {0:.7f}, Pitch: {1:.7f}, Yaw: {2:.7f}".format(roll, pitch, yaw))
         return -roll, pitch, yaw
     
@@ -70,20 +71,20 @@ class OdometryNode(Node):
         orientation = self.poseStamped_msg.pose.orientation
         # covert m to mm
         pos_x = position.z * 1000
-        pos_z = position.x * 1000
+        pos_y = position.x * 1000
         _, _, yaw = self.quaternion_to_rpy(orientation.x, orientation.y, orientation.z, orientation.w)
         # print("Roll: {}, Pitch: {}, Yaw: {}".format(roll, pitch, yaw))
         dx = self.pos_msg.x - pos_x
-        dy = self.pos_msg.y - pos_z
+        dy = self.pos_msg.y - pos_y
         dw = self.pos_msg.z - yaw
         # Calculate distances to target
         d = self.distance(0, 0, dx, dy)
         # If the robot is close enough to the target, stop moving
-        # if abs(d) < 10 and abs(dw) < 2:
-        #     self.Ix = self.Iy = self.Iw = 0
-        #     print("Stop")
-        #     self.run_pos = False
-        #     return 0.0, 0.0, 0.0
+        if abs(d) < 10 and abs(dw) < 2:
+            self.Ix = self.Iy = self.Iw = 0
+            print("Stop")
+            self.run_pos = False
+            return 0.0, 0.0, 0.0
         # Calculate velocities based on distances to target
 
         Px = dx * 0.5
@@ -92,8 +93,8 @@ class OdometryNode(Node):
         self.Iy = (self.Iy + dy) * 0.2
         Pw = dw * 0.1
         self.Iw = (self.Iw + dw) * 0.1
-        vx = Px+ self.Ix
-        vy = Py+ self.Iy
+        vx = Px + self.Ix
+        vy = Py + self.Iy
         w = Pw + self.Iw
         vx = min(vx,800)
         vx = max(vx,-800)
