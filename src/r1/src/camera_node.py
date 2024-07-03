@@ -52,7 +52,7 @@ class T265Publisher(Node):
             pitch_msg = Float32()
             pitch_msg.data = picth
             self.publisher_pitch.publish(pitch_msg)
-            print("pitch: {}".format(picth))
+            # print("pitch: {}".format(picth))
 
             # Kalman filter
             self.kf.predict()
@@ -60,7 +60,7 @@ class T265Publisher(Node):
             pitchKalman_msg = Float32()
             pitchKalman_msg.data = self.kf.state
             self.publisher_pitchKalman.publish(pitchKalman_msg)
-            print("pitchKalman: {}".format(self.kf.state))
+            # print("pitchKalman: {}".format(self.kf.state))
         
             imu_msg = Imu()
             imu_msg.orientation.x = data.rotation.x
