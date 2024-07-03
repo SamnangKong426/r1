@@ -9,7 +9,7 @@ class OdometryNode(Node):
     def __init__(self):
         super().__init__('odometryNode')
         self.publisher = self.create_publisher(Twist, '/cmd_vel', 10)
-        self.publisher_w = self.create_publisher(Float32, '/cmd_vel_w', 10)
+        # self.publisher_w = self.create_publisher(Float32, '/cmd_vel_w', 10)
         self.subscription = self.create_subscription(
             PoseStamped,
             '/camera/pose/sample',
@@ -102,9 +102,9 @@ class OdometryNode(Node):
         w = min(w, 45)
         w = max(w, -45)
 
-        w_msg = Float32()
-        w_msg.data = yaw
-        self.publisher_w.publish(w_msg)
+        # w_msg = Float32()
+        # w_msg.data = yaw
+        # self.publisher_w.publish(w_msg)
 
         vx, vy = self.next_vel(vx, vy, yaw)
         # self.get_logger().info('Velocity : %s, %s, %s' % (vx, vy, w))
