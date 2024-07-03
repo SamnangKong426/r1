@@ -33,7 +33,7 @@ class OdometryNode(Node):
         # self.get_logger().info('I heard: "%s"' % str(msg))
         self.poseStamped_msg = msg
         if self.run_pos:
-            vx, vy, w = self.set_locationv1(self.pos_msg.x, self.pos_msg.y, self.pos_msg.z)
+            vx, vy, w = self.set_location(self.pos_msg.x, self.pos_msg.y, self.pos_msg.z)
             twist = Twist()
             twist.linear.x = vx
             twist.linear.y = vy
