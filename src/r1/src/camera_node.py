@@ -17,8 +17,8 @@ class T265Publisher(Node):
         super().__init__('camera_t265')
         self.publisher_imu = self.create_publisher(Imu, 'camera/imu_data', 10)
         self.publisher_pose = self.create_publisher(PoseStamped, 'camera/pose/sample', 10)
-        self.publisher_picth = self.create_publisher(Float32, 'camera/pitch', 10)
-        self.publisher_picthKalman = self.create_publisher(Float32, 'camera/picthKalman', 10)
+        self.publisher_pitch = self.create_publisher(Float32, 'camera/pitch', 10)
+        self.publisher_pitchKalman = self.create_publisher(Float32, 'camera/pitchKalman', 10)
         self.timer_period = 0.01  # seconds
         self.timer = self.create_timer(self.timer_period, self.timer_callback)
 
@@ -46,21 +46,20 @@ class T265Publisher(Node):
             #     print("confidence: 3")
             #     self.first = False
             
-            roll, pitch, yaw = self.quaternion_to_rpy(data.rotation.x, data.rotation.y, data.rotation.z, data.rotation.w)
-            # print("roll: {}, pitch: {}, yaw: {}".format(roll, pitch, yaw))
-
+            roll, picth , yaw = self.quaternion_to_rpy(data.rotation.x, data.rotation.y, data.rotation.z, data.rotation.w)
+            # print("roll: {}, pitch: {}, yaw: {}".format(roll, picth, yaw))
+            
             pitch_msg = Float32()
-            pitch_msg.data = pitch
+            pitch_msg.data = picth
             self.publisher_pitch.publish(pitch_msg)
 
+            # Kalman filter
             self.kf.predict()
-            self.kf.update(pitch)
-            pitch = self.kf.state
-
+            self.kf.update(picth)
             pitchKalman_msg = Float32()
-            pitchKalman_msg.data = pitch
+            pitchKalman_msg.data = self.kf.state
             self.publisher_pitchKalman.publish(pitchKalman_msg)
-            
+        
             imu_msg = Imu()
             imu_msg.orientation.x = data.rotation.x
             imu_msg.orientation.y = data.rotation.y
