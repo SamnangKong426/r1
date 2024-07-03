@@ -2,7 +2,8 @@
 
 import rclpy
 from rclpy.node import Node
-from sensor_msgs.msg import Imu, Float
+from sensor_msgs.msg import Imu
+from std_msgs.msg import Float32
 from geometry_msgs.msg import PoseStamped
 import pyrealsense2 as rs
 import math as m
@@ -13,7 +14,7 @@ class T265Publisher(Node):
         super().__init__('camera_t265')
         self.publisher_imu = self.create_publisher(Imu, 'camera/imu_data', 10)
         self.publisher_pose = self.create_publisher(PoseStamped, 'camera/pose/sample', 10)
-        self.publisher_yaw = self.create_publisher(Float, 'camera/yaw', 10)
+        self.publisher_yaw = self.create_publisher(Float32, 'camera/yaw', 10)
         self.timer_period = 0.01  # seconds
         self.timer = self.create_timer(self.timer_period, self.timer_callback)
 
@@ -38,7 +39,7 @@ class T265Publisher(Node):
             
             _, _ , yaw = self.quaternion_to_rpy(data.rotation.x, data.rotation.y, data.rotation.z, data.rotation.w)
             print("Yaw: {}".format(yaw))
-            yaw_msg = Float()
+            yaw_msg = Float32()
             yaw_msg.data = yaw
             self.publisher_yaw.publish(yaw_msg)
         
