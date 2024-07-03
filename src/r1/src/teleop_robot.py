@@ -12,21 +12,18 @@ class PositionPublisher(Node):
         self.timer = self.create_timer(self.timer_period, self.timer_callback)
 
     def timer_callback(self):
-        msg = Point()
         x = float(input("Enter the x coordinate: "))
         y = float(input("Enter the y coordinate: "))
-        z = float(input("Enter the w angle: "))
+        z = float(input("Enter the z coordinate: "))
 
+        msg = Point()
         msg.x = x
         msg.y = y
         msg.z = z
 
-        print("x: ", x)
-        print("y: ", y)
-        print("z: ", z)
-
         self.publisher_.publish(msg)
-        self.get_logger().info('Publishing: "%f %f %f"' % (msg.x, msg.y, msg.z))
+        self.get_logger().info('Publishing: "%f %f %f"' % (x, y, z))
+        self.get_logger().info('Publishing msg: "%f %f %f"' % (msg.x, msg.y, msg.z))
 
 
 def main(args=None):
