@@ -33,7 +33,7 @@ class OdometryNode(Node):
         # self.get_logger().info('I heard: "%s"' % str(msg))
         self.poseStamped_msg = msg
         if self.run_pos:
-            vx, vy, w = self.set_location(self.pos_msg.x, self.pos_msg.y, self.pos_msg.z)
+            vx, vy, w = self.set_locationv1(self.pos_msg.x, self.pos_msg.y, self.pos_msg.z)
             twist = Twist()
             twist.linear.x = vx
             twist.linear.y = vy
@@ -65,50 +65,75 @@ class OdometryNode(Node):
     def distance(self, x1, y1, x2, y2):
         return m.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
     
-    def set_location(self, x, y, w):
+    # def set_location(self, x, y, w):
+    #     position = self.poseStamped_msg.pose.position
+    #     orientation = self.poseStamped_msg.pose.orientation
+    #     # covert m to mm
+    #     pos_x = position.z * 1000
+    #     pos_z = position.x * 1000
+    #     _, _, yaw = self.quaternion_to_rpy(orientation.x, orientation.y, orientation.z, orientation.w)
+    #     # print("Roll: {}, Pitch: {}, Yaw: {}".format(roll, pitch, yaw))
+    #     dx = self.pos_msg.x - pos_x
+    #     dy = self.pos_msg.y - pos_z
+    #     dw = self.pos_msg.z - yaw
+    #     # Calculate distances to target
+    #     d = self.distance(0, 0, dx, dy)
+    #     # If the robot is close enough to the target, stop moving
+    #     if abs(d) < 10 and abs(dw) < 2:
+    #         self.Ix = self.Iy = self.Iw = 0
+    #         print("Stop")
+    #         self.run_pos = False
+    #         return 0.0, 0.0, 0.0
+    #     # Calculate velocities based on distances to target
+
+    #     Px = dx * 0.5
+    #     self.Ix = (self.Ix + dx) * 0.2
+    #     Py = dy * 0.5
+    #     self.Iy = (self.Iy + dy) * 0.2
+    #     Pw = dw * 0.1
+    #     self.Iw = (self.Iw + dw) * 0.1
+    #     vx = Px+ self.Ix
+    #     vy = Py+ self.Iy
+    #     w = Pw + self.Iw
+    #     vx = min(vx,800)
+    #     vx = max(vx,-800)
+    #     vy = min(vy,800)
+    #     vy = max(vy,-800)
+    #     w = min(w, 45)
+    #     w = max(w, -45)
+
+    #     w_msg = Float32()
+    #     w_msg.data = dw
+    #     self.publisher_w.publish(w_msg)
+
+    #     vx, vy = self.next_vel(vx, vy, yaw)
+    #     # self.get_logger().info('Velocity : %s, %s, %s' % (vx, vy, w))
+    #     return float(vx), float(vy), float(w)
+    
+    def set_locationv1(self, x, y, w):
         position = self.poseStamped_msg.pose.position
         orientation = self.poseStamped_msg.pose.orientation
         # covert m to mm
         pos_x = position.z * 1000
         pos_z = position.x * 1000
+
         _, _, yaw = self.quaternion_to_rpy(orientation.x, orientation.y, orientation.z, orientation.w)
         # print("Roll: {}, Pitch: {}, Yaw: {}".format(roll, pitch, yaw))
         dx = self.pos_msg.x - pos_x
         dy = self.pos_msg.y - pos_z
         dw = self.pos_msg.z - yaw
-        # Calculate distances to target
+
         d = self.distance(0, 0, dx, dy)
-        # If the robot is close enough to the target, stop moving
-        if d < 10 and abs(dw) < 2:
-            self.Ix = self.Iy = self.Iw = 0
+        if abs(d) < 10 and abs(dw) < 2:
             print("Stop")
             self.run_pos = False
             return 0.0, 0.0, 0.0
-        # Calculate velocities based on distances to target
 
-        Px = dx * 0.5
-        self.Ix = (self.Ix + dx) * 0.2
-        Py = dy * 0.5
-        self.Iy = (self.Iy + dy) * 0.2
-        Pw = dw * 0.1
-        self.Iw = (self.Iw + dw) * 0.1
-        vx = Px+ self.Ix
-        vy = Py+ self.Iy
-        w = Pw + self.Iw
-        vx = min(vx,800)
-        vx = max(vx,-800)
-        vy = min(vy,800)
-        vy = max(vy,-800)
-        w = min(w, 45)
-        w = max(w, -45)
-
-        w_msg = Float32()
-        w_msg.data = dw
-        self.publisher_w.publish(w_msg)
-
-        vx, vy = self.next_vel(vx, vy, yaw)
-        # self.get_logger().info('Velocity : %s, %s, %s' % (vx, vy, w))
-        return float(vx), float(vy), float(w)
+        vx = dx * 0.5
+        vy = dy * 0.5 
+        w = dw * 0.04 
+        return vx, vy, w
+        
 
 def main(args=None):
     rclpy.init(args=args)
