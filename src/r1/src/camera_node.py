@@ -70,9 +70,9 @@ class T265Publisher(Node):
 
     def quaternion_to_rpy(self, rs_x, rs_y, rs_z, rs_w):
         w = rs_w
-        x = -rs_z
+        x = rs_z
         y = -rs_x
-        z = -rs_y
+        z = rs_y
 
         pitch =  -m.asin(2.0 * (x*z - w*y)) * 180.0 / m.pi
         roll  =  m.atan2(2.0 * (w*x + y*z), w*w - x*x - y*y + z*z) * 180.0 / m.pi
