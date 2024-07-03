@@ -12,11 +12,6 @@ class ComArduino:
         self.arser.open()
         self.arrx = bytes(0)
 
-        self.distance_ball = 0
-        self.pos_x = 0
-        self.pos_y = 0
-        self.next_pos_x = 0
-
     def ar_read_from_port(self):
         while True:
             while self.arser.in_waiting > 0:
