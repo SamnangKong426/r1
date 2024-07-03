@@ -79,11 +79,11 @@ class OdometryNode(Node):
         # covert m to mm
         pos_x = position.z * 1000
         pos_y = position.x * 1000
-        _, _, yaw = self.quaternion_to_rpy(orientation.x, orientation.y, orientation.z, orientation.w)
+        _, pitch, yaw = self.quaternion_to_rpy(orientation.x, orientation.y, orientation.z, orientation.w)
         # print("Roll: {}, Pitch: {}, Yaw: {}".format(roll, pitch, yaw))
         dx = self.pos_msg.x - pos_x
         dy = self.pos_msg.y - pos_y
-        dw = self.pos_msg.z - yaw
+        dw = self.pos_msg.z - pitch
         # Calculate distances to target
         d = self.distance(0, 0, dx, dy)
         # If the robot is close enough to the target, stop moving
@@ -114,7 +114,7 @@ class OdometryNode(Node):
         # w_msg.data = yaw
         # self.publisher_w.publish(w_msg)
 
-        vx, vy = self.next_vel(vx, vy, yaw)
+        # vx, vy = self.next_vel(vx, vy, yaw)
         # self.get_logger().info('Velocity : %s, %s, %s' % (vx, vy, w))
         return float(vx), float(vy), float(w)
     
