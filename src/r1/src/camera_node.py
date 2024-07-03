@@ -31,11 +31,12 @@ class T265Publisher(Node):
         if pose_frame:
             data = pose_frame.get_pose_data()
             # print("Frame #{}".format(pose_frame.frame_number))
-            if data.tracker_confidence != 3:
-                print("conf: {}".format(data.tracker_confidence))
-            elif data.tracker_confidence == 3 and self.first: 
-                print("conf: {}".format(data.tracker_confidence))
-                self.first = False
+            # if data.tracker_confidence != 3:
+            #     print("conf: {}".format(data.tracker_confidence))
+                
+            # elif data.tracker_confidence == 3 and self.first: 
+            #     print("confidence: 3")
+            #     self.first = False
             
             _, _ , yaw = self.quaternion_to_rpy(data.rotation.x, data.rotation.y, data.rotation.z, data.rotation.w)
             # print("Yaw: {}".format(yaw))
