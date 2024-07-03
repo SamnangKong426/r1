@@ -23,6 +23,7 @@
 #define L_EN 43
 #define LPWM 8
 #define RPWM 9
+
 JsonDocument doc;
 
 float lx = 225;
