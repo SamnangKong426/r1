@@ -10,6 +10,7 @@
 /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/src/teleop_robot.py
 /home/tong/robocon_ws/r1_ws/install/r1/lib/r1/src/camera_node.py
 /home/tong/robocon_ws/r1_ws/install/r1/share/r1/launch/camera.launch.py
+/home/tong/robocon_ws/r1_ws/install/r1/share/r1/launch/joystick.launch.py
 /home/tong/robocon_ws/r1_ws/install/r1/share/r1/launch/r1.launch.py
 /home/tong/robocon_ws/r1_ws/install/r1/share/ament_index/resource_index/package_run_dependencies/r1
 /home/tong/robocon_ws/r1_ws/install/r1/share/ament_index/resource_index/parent_prefix_path/r1

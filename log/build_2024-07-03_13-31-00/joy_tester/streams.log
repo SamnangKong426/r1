@@ -1,0 +1,38 @@
+[0.589s] Invoking command in '/home/tong/robocon_ws/r1_ws/src/joy_tester': PYTHONPATH=/home/tong/robocon_ws/r1_ws/build/joy_tester/prefix_override:/home/tong/robocon_ws/r1_ws/install/joy_tester/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/joy_tester build --build-base /home/tong/robocon_ws/r1_ws/build/joy_tester/build install --record /home/tong/robocon_ws/r1_ws/build/joy_tester/install.log --single-version-externally-managed install_data
+[0.767s] running egg_info
+[0.767s] creating ../../build/joy_tester/joy_tester.egg-info
+[0.767s] writing ../../build/joy_tester/joy_tester.egg-info/PKG-INFO
+[0.767s] writing dependency_links to ../../build/joy_tester/joy_tester.egg-info/dependency_links.txt
+[0.767s] writing entry points to ../../build/joy_tester/joy_tester.egg-info/entry_points.txt
+[0.768s] writing requirements to ../../build/joy_tester/joy_tester.egg-info/requires.txt
+[0.768s] writing top-level names to ../../build/joy_tester/joy_tester.egg-info/top_level.txt
+[0.769s] writing manifest file '../../build/joy_tester/joy_tester.egg-info/SOURCES.txt'
+[0.770s] reading manifest file '../../build/joy_tester/joy_tester.egg-info/SOURCES.txt'
+[0.771s] adding license file 'LICENSE'
+[0.771s] writing manifest file '../../build/joy_tester/joy_tester.egg-info/SOURCES.txt'
+[0.771s] running build
+[0.771s] running build_py
+[0.771s] creating /home/tong/robocon_ws/r1_ws/build/joy_tester/build
+[0.771s] creating /home/tong/robocon_ws/r1_ws/build/joy_tester/build/lib
+[0.771s] creating /home/tong/robocon_ws/r1_ws/build/joy_tester/build/lib/joy_tester
+[0.771s] copying joy_tester/__init__.py -> /home/tong/robocon_ws/r1_ws/build/joy_tester/build/lib/joy_tester
+[0.772s] copying joy_tester/test_joy.py -> /home/tong/robocon_ws/r1_ws/build/joy_tester/build/lib/joy_tester
+[0.772s] running install
+[0.772s] running install_lib
+[0.772s] creating /home/tong/robocon_ws/r1_ws/install/joy_tester/lib/python3.8/site-packages/joy_tester
+[0.772s] copying /home/tong/robocon_ws/r1_ws/build/joy_tester/build/lib/joy_tester/__init__.py -> /home/tong/robocon_ws/r1_ws/install/joy_tester/lib/python3.8/site-packages/joy_tester
+[0.772s] copying /home/tong/robocon_ws/r1_ws/build/joy_tester/build/lib/joy_tester/test_joy.py -> /home/tong/robocon_ws/r1_ws/install/joy_tester/lib/python3.8/site-packages/joy_tester
+[0.773s] byte-compiling /home/tong/robocon_ws/r1_ws/install/joy_tester/lib/python3.8/site-packages/joy_tester/__init__.py to __init__.cpython-38.pyc
+[0.773s] byte-compiling /home/tong/robocon_ws/r1_ws/install/joy_tester/lib/python3.8/site-packages/joy_tester/test_joy.py to test_joy.cpython-38.pyc
+[0.774s] running install_data
+[0.774s] creating /home/tong/robocon_ws/r1_ws/install/joy_tester/share/ament_index
+[0.774s] creating /home/tong/robocon_ws/r1_ws/install/joy_tester/share/ament_index/resource_index
+[0.774s] creating /home/tong/robocon_ws/r1_ws/install/joy_tester/share/ament_index/resource_index/packages
+[0.774s] copying resource/joy_tester -> /home/tong/robocon_ws/r1_ws/install/joy_tester/share/ament_index/resource_index/packages
+[0.774s] copying package.xml -> /home/tong/robocon_ws/r1_ws/install/joy_tester/share/joy_tester
+[0.774s] running install_egg_info
+[0.775s] Copying ../../build/joy_tester/joy_tester.egg-info to /home/tong/robocon_ws/r1_ws/install/joy_tester/lib/python3.8/site-packages/joy_tester-0.0.2-py3.8.egg-info
+[0.775s] running install_scripts
+[0.788s] Installing test_joy script to /home/tong/robocon_ws/r1_ws/install/joy_tester/lib/joy_tester
+[0.788s] writing list of installed files to '/home/tong/robocon_ws/r1_ws/build/joy_tester/install.log'
+[0.820s] Invoked command in '/home/tong/robocon_ws/r1_ws/src/joy_tester' returned '0': PYTHONPATH=/home/tong/robocon_ws/r1_ws/build/joy_tester/prefix_override:/home/tong/robocon_ws/r1_ws/install/joy_tester/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/joy_tester build --build-base /home/tong/robocon_ws/r1_ws/build/joy_tester/build install --record /home/tong/robocon_ws/r1_ws/build/joy_tester/install.log --single-version-externally-managed install_data

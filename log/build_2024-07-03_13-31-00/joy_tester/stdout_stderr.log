@@ -1,0 +1,36 @@
+running egg_info
+creating ../../build/joy_tester/joy_tester.egg-info
+writing ../../build/joy_tester/joy_tester.egg-info/PKG-INFO
+writing dependency_links to ../../build/joy_tester/joy_tester.egg-info/dependency_links.txt
+writing entry points to ../../build/joy_tester/joy_tester.egg-info/entry_points.txt
+writing requirements to ../../build/joy_tester/joy_tester.egg-info/requires.txt
+writing top-level names to ../../build/joy_tester/joy_tester.egg-info/top_level.txt
+writing manifest file '../../build/joy_tester/joy_tester.egg-info/SOURCES.txt'
+reading manifest file '../../build/joy_tester/joy_tester.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../build/joy_tester/joy_tester.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/tong/robocon_ws/r1_ws/build/joy_tester/build
+creating /home/tong/robocon_ws/r1_ws/build/joy_tester/build/lib
+creating /home/tong/robocon_ws/r1_ws/build/joy_tester/build/lib/joy_tester
+copying joy_tester/__init__.py -> /home/tong/robocon_ws/r1_ws/build/joy_tester/build/lib/joy_tester
+copying joy_tester/test_joy.py -> /home/tong/robocon_ws/r1_ws/build/joy_tester/build/lib/joy_tester
+running install
+running install_lib
+creating /home/tong/robocon_ws/r1_ws/install/joy_tester/lib/python3.8/site-packages/joy_tester
+copying /home/tong/robocon_ws/r1_ws/build/joy_tester/build/lib/joy_tester/__init__.py -> /home/tong/robocon_ws/r1_ws/install/joy_tester/lib/python3.8/site-packages/joy_tester
+copying /home/tong/robocon_ws/r1_ws/build/joy_tester/build/lib/joy_tester/test_joy.py -> /home/tong/robocon_ws/r1_ws/install/joy_tester/lib/python3.8/site-packages/joy_tester
+byte-compiling /home/tong/robocon_ws/r1_ws/install/joy_tester/lib/python3.8/site-packages/joy_tester/__init__.py to __init__.cpython-38.pyc
+byte-compiling /home/tong/robocon_ws/r1_ws/install/joy_tester/lib/python3.8/site-packages/joy_tester/test_joy.py to test_joy.cpython-38.pyc
+running install_data
+creating /home/tong/robocon_ws/r1_ws/install/joy_tester/share/ament_index
+creating /home/tong/robocon_ws/r1_ws/install/joy_tester/share/ament_index/resource_index
+creating /home/tong/robocon_ws/r1_ws/install/joy_tester/share/ament_index/resource_index/packages
+copying resource/joy_tester -> /home/tong/robocon_ws/r1_ws/install/joy_tester/share/ament_index/resource_index/packages
+copying package.xml -> /home/tong/robocon_ws/r1_ws/install/joy_tester/share/joy_tester
+running install_egg_info
+Copying ../../build/joy_tester/joy_tester.egg-info to /home/tong/robocon_ws/r1_ws/install/joy_tester/lib/python3.8/site-packages/joy_tester-0.0.2-py3.8.egg-info
+running install_scripts
+Installing test_joy script to /home/tong/robocon_ws/r1_ws/install/joy_tester/lib/joy_tester
+writing list of installed files to '/home/tong/robocon_ws/r1_ws/build/joy_tester/install.log'
