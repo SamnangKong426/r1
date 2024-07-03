@@ -15,9 +15,6 @@ class PositionPublisher(Node):
         x = float(input("Enter the x coordinate: "))
         y = float(input("Enter the y coordinate: "))
         z = float(input("Enter the z coordinate: "))
-        x = 0.0
-        y = 0.0
-        z = 0.0
 
         msg = Point()
         msg.x = x
@@ -25,7 +22,8 @@ class PositionPublisher(Node):
         msg.z = z
 
         self.publisher_.publish(msg)
-        self.get_logger().info('Publishing: "%f %f %f"' % (msg.x, msg.y, msg.z))
+        self.get_logger().info('Publishing: "%f %f %f"' % (x, y, z))
+        self.get_logger().info('Publishing msg: "%f %f %f"' % (msg.x, msg.y, msg.z))
 
 
 def main(args=None):

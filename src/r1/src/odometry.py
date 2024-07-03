@@ -33,8 +33,8 @@ class OdometryNode(Node):
         self.pos_msg = Point()
         self.poseStamped_msg = PoseStamped()
 
-        # Kalman filter
-        self.kf = KalmanFilter(process_noise=0.05, measurement_noise=10, estimated_error=0)
+        # # Kalman filter
+        # self.kf = KalmanFilter(process_noise=0.05, measurement_noise=10, estimated_error=0)
 
     def listener_callback(self, msg: PoseStamped):
         # self.get_logger().info('I heard: "%s"' % str(msg))

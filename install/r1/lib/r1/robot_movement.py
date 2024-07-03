@@ -20,7 +20,6 @@ class VelocityTransformer(Node):
             }
         self.serial_arduino = ComArduino()
         th.Thread(target=self.serial_arduino.ar_read_from_port).start()
-        time.sleep(1)
 
     def listener_callback(self, msg):
         self.data["Cmd_vel"] = [msg.linear.x, msg.linear.y, msg.angular.z]

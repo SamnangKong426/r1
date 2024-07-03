@@ -8,6 +8,7 @@ from geometry_msgs.msg import PoseStamped
 import pyrealsense2 as rs
 import math as m
 from scipy.spatial.transform import Rotation as R
+from kalmanFilter import KalmanFilter
 
 
 class T265Publisher(Node):
@@ -27,6 +28,9 @@ class T265Publisher(Node):
         self.config.enable_stream(rs.stream.pose)
         self.pipeline.start(self.config)
         self.first = True
+
+        # Kalman filter
+        self.kf = KalmanFilter(process_noise=0.05, measurement_noise=10, estimated_error=0)
 
 
     def timer_callback(self):

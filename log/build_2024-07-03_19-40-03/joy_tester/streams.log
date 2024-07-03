@@ -1,0 +1,22 @@
+[0.671s] Invoking command in '/home/tong/robocon_ws/r1_ws/src/joy_tester': PYTHONPATH=/home/tong/robocon_ws/r1_ws/build/joy_tester/prefix_override:/home/tong/robocon_ws/r1_ws/install/joy_tester/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/joy_tester build --build-base /home/tong/robocon_ws/r1_ws/build/joy_tester/build install --record /home/tong/robocon_ws/r1_ws/build/joy_tester/install.log --single-version-externally-managed install_data
+[0.865s] running egg_info
+[0.865s] writing ../../build/joy_tester/joy_tester.egg-info/PKG-INFO
+[0.866s] writing dependency_links to ../../build/joy_tester/joy_tester.egg-info/dependency_links.txt
+[0.866s] writing entry points to ../../build/joy_tester/joy_tester.egg-info/entry_points.txt
+[0.866s] writing requirements to ../../build/joy_tester/joy_tester.egg-info/requires.txt
+[0.867s] writing top-level names to ../../build/joy_tester/joy_tester.egg-info/top_level.txt
+[0.869s] reading manifest file '../../build/joy_tester/joy_tester.egg-info/SOURCES.txt'
+[0.869s] adding license file 'LICENSE'
+[0.870s] writing manifest file '../../build/joy_tester/joy_tester.egg-info/SOURCES.txt'
+[0.870s] running build
+[0.870s] running build_py
+[0.870s] running install
+[0.870s] running install_lib
+[0.871s] running install_data
+[0.871s] running install_egg_info
+[0.872s] removing '/home/tong/robocon_ws/r1_ws/install/joy_tester/lib/python3.8/site-packages/joy_tester-0.0.2-py3.8.egg-info' (and everything under it)
+[0.873s] Copying ../../build/joy_tester/joy_tester.egg-info to /home/tong/robocon_ws/r1_ws/install/joy_tester/lib/python3.8/site-packages/joy_tester-0.0.2-py3.8.egg-info
+[0.873s] running install_scripts
+[0.886s] Installing test_joy script to /home/tong/robocon_ws/r1_ws/install/joy_tester/lib/joy_tester
+[0.886s] writing list of installed files to '/home/tong/robocon_ws/r1_ws/build/joy_tester/install.log'
+[0.902s] Invoked command in '/home/tong/robocon_ws/r1_ws/src/joy_tester' returned '0': PYTHONPATH=/home/tong/robocon_ws/r1_ws/build/joy_tester/prefix_override:/home/tong/robocon_ws/r1_ws/install/joy_tester/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/joy_tester build --build-base /home/tong/robocon_ws/r1_ws/build/joy_tester/build install --record /home/tong/robocon_ws/r1_ws/build/joy_tester/install.log --single-version-externally-managed install_data

@@ -49,6 +49,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "/home/tong/robocon_ws/r1_ws/src/r1/src/odometry.py"
     "/home/tong/robocon_ws/r1_ws/src/r1/src/teleop_robot.py"
     "/home/tong/robocon_ws/r1_ws/src/r1/src/camera_node.py"
+    "/home/tong/robocon_ws/r1_ws/src/r1/src/kalmanFilter.py"
     )
 endif()
 
