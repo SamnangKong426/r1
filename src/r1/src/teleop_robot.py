@@ -21,6 +21,10 @@ class PositionPublisher(Node):
         msg.y = y
         msg.z = z
 
+        print("x: ", x)
+        print("y: ", y)
+        print("z: ", z)
+
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing: "%f %f %f"' % (msg.x, msg.y, msg.z))
 
