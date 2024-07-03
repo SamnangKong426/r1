@@ -40,7 +40,7 @@ class OdometryNode(Node):
             self.publisher.publish(twist)
 
     def locate_cmd_callback(self, msg):
-        # self.get_logger().info('I heard: "%s"' % str(msg))
+        self.get_logger().info('I heard: "%s"' % str(msg))
         self.pos_msg = msg
         self.run_pos = True
 
@@ -80,7 +80,7 @@ class OdometryNode(Node):
         # If the robot is close enough to the target, stop moving
         if d < 10 and abs(dw) < 10:
             self.Ix = self.Iy = self.Iw = 0
-            # print("Stop")
+            print("Stop")
             self.run_pos = False
             return 0.0, 0.0, 0.0
         # Calculate velocities based on distances to target
