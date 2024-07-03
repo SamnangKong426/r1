@@ -46,22 +46,22 @@ class OdometryNode(Node):
         self.pos_msg = msg
         self.run_pos = True
 
-    # def quaternion_to_rpy(self, rs_x, rs_y, rs_z, rs_w):
-    #     w = rs_w
-    #     x = -rs_z
-    #     y = rs_x
-    #     z = -rs_y
+    def quaternion_to_rpy(self, rs_x, rs_y, rs_z, rs_w):
+        w = rs_w
+        x = rs_z
+        y = -rs_x
+        z = -rs_y
 
-    #     pitch =  -m.asin(2.0 * (x*z - w*y)) * 180.0 / m.pi
-    #     roll  =  m.atan2(2.0 * (w*x + y*z), w*w - x*x - y*y + z*z) * 180.0 / m.pi
-    #     yaw   =  -m.atan2(2.0 * (w*z + x*y), w*w + x*x - y*y - z*z) * 180.0 / m.pi
-    #     # print("RPY [deg]: Roll: {0:.7f}, Pitch: {1:.7f}, Yaw: {2:.7f}".format(roll, pitch, yaw))
-    #     return roll, pitch, yaw
-    
-    def quaternion_to_rpy(self, x, y, z, w):
-        r = R.from_quat([x, y, z, w])
-        roll, pitch, yaw = r.as_euler('xyz', degrees=True)
+        pitch =  -m.asin(2.0 * (x*z - w*y)) * 180.0 / m.pi
+        roll  =  m.atan2(2.0 * (w*x + y*z), w*w - x*x - y*y + z*z) * 180.0 / m.pi
+        yaw   =  m.atan2(2.0 * (w*z + x*y), w*w + x*x - y*y - z*z) * 180.0 / m.pi
+        # print("RPY [deg]: Roll: {0:.7f}, Pitch: {1:.7f}, Yaw: {2:.7f}".format(roll, pitch, yaw))
         return roll, pitch, yaw
+    
+    # def quaternion_to_rpy(self, x, y, z, w):
+    #     r = R.from_quat([x, y, z, w])
+    #     roll, pitch, yaw = r.as_euler('xyz', degrees=True)
+    #     return roll, pitch, yaw
 
     
     def next_vel(self, vx, vy, yaw):
@@ -83,7 +83,7 @@ class OdometryNode(Node):
         # print("Roll: {}, Pitch: {}, Yaw: {}".format(roll, pitch, yaw))
         dx = self.pos_msg.x - pos_x
         dy = self.pos_msg.y - pos_y
-        dw = self.pos_msg.z - pitch
+        dw = self.pos_msg.z - yaw
         # Calculate distances to target
         d = self.distance(0, 0, dx, dy)
         # If the robot is close enough to the target, stop moving
