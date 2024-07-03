@@ -24,7 +24,7 @@ class ComArduino:
                 arrx = self.arser.read(500)
                 self.arser.flushInput()
                 txt = str(arrx, 'utf-8')
-                # print(txt)
+                print(txt)
                 
     def compare_strings(self, string1, string2):
         pattern = re.compile(string2)
