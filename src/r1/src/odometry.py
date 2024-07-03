@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import String
+from std_msgs.msg import String, Float32
 from geometry_msgs.msg import Point, Twist, PoseStamped
 import math as m
 
@@ -9,6 +9,7 @@ class OdometryNode(Node):
     def __init__(self):
         super().__init__('odometryNode')
         self.publisher = self.create_publisher(Twist, '/cmd_vel', 10)
+        self.publisher_w = self.create_publisher(String, '/cmd_vel_w', 10)
         self.subscription = self.create_subscription(
             PoseStamped,
             '/camera/pose/sample',
@@ -100,6 +101,10 @@ class OdometryNode(Node):
         vy = max(vy,-800)
         w = min(w, 45)
         w = max(w, -45)
+
+        w_msg = Float32()
+        w_msg.data = w
+        self.publisher_w.publish(w_msg)
 
         vx, vy = self.next_vel(vx, vy, yaw)
         # self.get_logger().info('Velocity : %s, %s, %s' % (vx, vy, w))
