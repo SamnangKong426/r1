@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import time
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String, Float32
@@ -103,12 +104,13 @@ class OdometryNode(Node):
         vx = Px + self.Ix
         vy = Py + self.Iy
         w = Pw + self.Iw
-        vx = min(vx,800)
-        vx = max(vx,-800)
-        vy = min(vy,800)
-        vy = max(vy,-800)
-        w = min(w, 45)
-        w = max(w, -45)
+        # vx = min(vx,800)
+        # vx = max(vx,-800)
+        # vy = min(vy,800)
+        # vy = max(vy,-800)
+        # w = min(w, 45)
+        # w = max(w, -45)
+        time.sleep(0.1)
 
         # w_msg = Float32()
         # w_msg.data = yaw

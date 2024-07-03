@@ -25,7 +25,7 @@ class VelocityTransformer(Node):
         self.data["Cmd_vel"] = [msg.linear.x, msg.linear.y, msg.angular.z]
         self.serial_arduino.arser.write(str(self.data).encode())
         # self.get_logger().info('I heard: "%s"' % str(self.data))
-        time.sleep(0.2)
+        # time.sleep(0.1)
         
 def main(args=None):
     rclpy.init(args=args)
