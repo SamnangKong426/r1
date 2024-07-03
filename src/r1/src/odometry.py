@@ -55,7 +55,7 @@ class OdometryNode(Node):
         roll  =  m.atan2(2.0 * (w*x + y*z), w*w - x*x - y*y + z*z) * 180.0 / m.pi
         yaw   =  m.atan2(2.0 * (w*z + x*y), w*w + x*x - y*y - z*z) * 180.0 / m.pi
         # print("RPY [deg]: Roll: {0:.7f}, Pitch: {1:.7f}, Yaw: {2:.7f}".format(roll, pitch, yaw))
-        return -roll, pitch, yaw
+        return roll, pitch, yaw
     
     def next_vel(self, vx, vy, yaw):
         next_vx = (vx * m.cos(m.radians(yaw))) + (vy * m.sin(m.radians(yaw)))

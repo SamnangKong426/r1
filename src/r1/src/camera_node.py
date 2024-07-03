@@ -69,9 +69,9 @@ class T265Publisher(Node):
         z = -rs_y
         pitch =  -m.asin(2.0 * (x*z - w*y)) * 180.0 / m.pi
         roll  =  m.atan2(2.0 * (w*x + y*z), w*w - x*x - y*y + z*z) * 180.0 / m.pi
-        yaw   =  -m.atan2(2.0 * (w*z + x*y), w*w + x*x - y*y - z*z) * 180.0 / m.pi
+        yaw   =  m.atan2(2.0 * (w*z + x*y), w*w + x*x - y*y - z*z) * 180.0 / m.pi
         # print("RPY [deg]: Roll: {0:.7f}, Pitch: {1:.7f}, Yaw: {2:.7f}".format(roll, pitch, yaw))
-        return -roll, pitch, yaw
+        return roll, pitch, yaw
 
 def main(args=None):
     rclpy.init(args=args)
