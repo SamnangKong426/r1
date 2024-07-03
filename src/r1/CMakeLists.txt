@@ -14,6 +14,7 @@ install(PROGRAMS
   src/odometry.py
   src/teleop_robot.py
   src/camera_node.py
+  src/kalmanFilter.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
