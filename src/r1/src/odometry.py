@@ -88,7 +88,7 @@ class OdometryNode(Node):
         # Calculate distances to target
         d = self.distance(0, 0, dx, dy)
         # If the robot is close enough to the target, stop moving
-        if abs(d) < 10 and abs(dw) < 2:
+        if abs(d) < 0.1 and abs(dw) < 0.1:
             self.Ix = self.Iy = self.Iw = 0
             print("Stop")
             self.run_pos = False
@@ -99,7 +99,7 @@ class OdometryNode(Node):
         self.Ix = (self.Ix + dx) * 0 # 0.2
         Py = dy * 1                   # 0.5
         self.Iy = (self.Iy + dy) * 0  # 0.2
-        Pw = dw * 0.1                # 0.1
+        Pw = dw * 0.04                # 0.1
         self.Iw = (self.Iw + dw) * 0  # 0.1
         vx = Px + self.Ix
         vy = Py + self.Iy
