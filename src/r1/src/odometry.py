@@ -41,11 +41,11 @@ class OdometryNode(Node):
         self.poseStamped_msg = msg
         if self.run_pos:
             vx, vy, w = self.set_location(self.pos_msg.x, self.pos_msg.y, self.pos_msg.z)
-            twist = Twist()
-            twist.linear.x = vx
-            twist.linear.y = vy
-            twist.angular.z = w
-            self.publisher.publish(twist)
+            # twist = Twist()
+            # twist.linear.x = vx
+            # twist.linear.y = vy
+            # twist.angular.z = w
+            # self.publisher.publish(twist)
 
     def locate_cmd_callback(self, msg):
         self.get_logger().info('I heard: "%s"' % str(msg))
@@ -104,7 +104,7 @@ class OdometryNode(Node):
             self.Ix = self.Iy = self.Iw = 0
             print("Stop")
             self.run_pos = False
-            return 0.0, 0.0, 0.0
+            # return 0.0, 0.0, 0.0
         # Calculate velocities based on distances to target
 
         Px = dx * 0.1                   # 0.5
@@ -125,7 +125,7 @@ class OdometryNode(Node):
         time.sleep(0.1)
 
         # vx, vy = self.next_vel(vx, vy, yaw)
-        # self.get_logger().info('Velocity : %s, %s, %s' % (vx, vy, w))
+        self.get_logger().info('Velocity : %s, %s, %s' % (vx, vy, w))
         return float(vx), float(vy), float(w)
     
     # def set_locationv1(self, x, y, w):
