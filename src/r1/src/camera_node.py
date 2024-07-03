@@ -5,6 +5,7 @@ from rclpy.node import Node
 from sensor_msgs.msg import Imu
 from geometry_msgs.msg import PoseStamped
 import pyrealsense2 as rs
+import os
 
 class T265Publisher(Node):
 
@@ -29,6 +30,8 @@ class T265Publisher(Node):
             # print("Frame #{}".format(pose_frame.frame_number))
             if data.tracker_confidence != 3:
                 print("conf: {}".format(data.tracker_confidence))
+                os.system('clear')
+        
             imu_msg = Imu()
             imu_msg.orientation.x = data.rotation.x
             imu_msg.orientation.y = data.rotation.y
