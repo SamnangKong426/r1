@@ -6,12 +6,14 @@ from std_msgs.msg import String, Float32
 from geometry_msgs.msg import Point, Twist, PoseStamped
 import math as m
 from scipy.spatial.transform import Rotation as R
+from kalmanFilter import KalmanFilter
 
 class OdometryNode(Node):
     def __init__(self):
         super().__init__('odometryNode')
         self.publisher = self.create_publisher(Twist, '/cmd_vel', 10)
-        # self.publisher_w = self.create_publisher(Float32, '/cmd_vel_w', 10)
+        self.publisher_picth = self.create_publisher(Float32, '/pitch', 10)
+        self.publisher_kalmanPitch = self.create_publisher(Float32, '/kalman_pitch', 10)
         self.subscription = self.create_subscription(
             PoseStamped,
             '/camera/pose/sample',
@@ -30,6 +32,9 @@ class OdometryNode(Node):
         self.run_pos = False
         self.pos_msg = Point()
         self.poseStamped_msg = PoseStamped()
+
+        # Kalman filter
+        self.kf = KalmanFilter(process_noise=0.05, measurement_noise=10, estimated_error=0)
 
     def listener_callback(self, msg: PoseStamped):
         # self.get_logger().info('I heard: "%s"' % str(msg))
@@ -82,6 +87,9 @@ class OdometryNode(Node):
         pos_y = position.x * 1000
         _, pitch, yaw = self.quaternion_to_rpy(orientation.x, orientation.y, orientation.z, orientation.w)
         # print("Roll: {}, Pitch: {}, Yaw: {}".format(roll, pitch, yaw))
+        # self.kf.predict()
+        # self.kf.update(pitch)
+        # pitch = self.kf.state
         dx = self.pos_msg.x - pos_x
         dy = self.pos_msg.y - pos_y
         dw = self.pos_msg.z - pitch
@@ -104,17 +112,13 @@ class OdometryNode(Node):
         vx = Px + self.Ix
         vy = Py + self.Iy
         w = Pw + self.Iw
-        # vx = min(vx,800)
-        # vx = max(vx,-800)
-        # vy = min(vy,800)
-        # vy = max(vy,-800)
-        # w = min(w, 45)
-        # w = max(w, -45)
+        vx = min(vx,800)
+        vx = max(vx,-800)
+        vy = min(vy,800)
+        vy = max(vy,-800)
+        w = min(w, 45)
+        w = max(w, -45)
         time.sleep(0.1)
-
-        # w_msg = Float32()
-        # w_msg.data = yaw
-        # self.publisher_w.publish(w_msg)
 
         # vx, vy = self.next_vel(vx, vy, yaw)
         # self.get_logger().info('Velocity : %s, %s, %s' % (vx, vy, w))
