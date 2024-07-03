@@ -13,13 +13,13 @@ class ComArduino:
         self.arrx = bytes(0)
 
     def ar_read_from_port(self):
-        while True:
-            while self.arser.in_waiting > 0:
-                global arrx
-                arrx = self.arser.read(500)
-                self.arser.flushInput()
-                txt = str(arrx, 'utf-8')
-                print(txt)
+        # while True:
+        while self.arser.in_waiting > 0:
+            global arrx
+            arrx = self.arser.read(500)
+            self.arser.flushInput()
+            txt = str(arrx, 'utf-8')
+            print(txt)
                 
     def compare_strings(self, string1, string2):
         pattern = re.compile(string2)
