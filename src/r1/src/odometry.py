@@ -103,7 +103,7 @@ class OdometryNode(Node):
         w = max(w, -45)
 
         w_msg = Float32()
-        w_msg.data = w
+        w_msg.data = dw
         self.publisher_w.publish(w_msg)
 
         vx, vy = self.next_vel(vx, vy, yaw)
