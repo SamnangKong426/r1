@@ -33,8 +33,8 @@ class OdometryNode(Node):
         self.pos_msg = Point()
         self.poseStamped_msg = PoseStamped()
 
-        # # Kalman filter
-        # self.kf = KalmanFilter(process_noise=0.05, measurement_noise=10, estimated_error=0)
+        # Kalman filter
+        self.kf = KalmanFilter(process_noise=0.05, measurement_noise=100, estimated_error=0)
 
     def listener_callback(self, msg: PoseStamped):
         # self.get_logger().info('I heard: "%s"' % str(msg))
@@ -86,6 +86,10 @@ class OdometryNode(Node):
         pos_x = position.z * 1000
         pos_y = position.x * 1000
         _, pitch, yaw = self.quaternion_to_rpy(orientation.x, orientation.y, orientation.z, orientation.w)
+        # Kalman filter
+        self.kf.predict()
+        self.kf.update(pitch)
+        pitch = self.kf.state
         # print("Roll: {}, Pitch: {}, Yaw: {}".format(roll, pitch, yaw))
         # self.kf.predict()
         # self.kf.update(pitch)
