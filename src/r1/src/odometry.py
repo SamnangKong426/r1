@@ -48,7 +48,7 @@ class OdometryNode(Node):
 
     def quaternion_to_rpy(self, rs_x, rs_y, rs_z, rs_w):
         w = rs_w
-        x = rs_z
+        x = -rs_z
         y = -rs_x
         z = rs_y
 
