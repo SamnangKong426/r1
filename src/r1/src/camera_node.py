@@ -26,7 +26,7 @@ class T265Publisher(Node):
         pose_frame = frames.get_pose_frame()
         if pose_frame:
             data = pose_frame.get_pose_data()
-            print("Frame #{}".format(pose_frame.frame_number))
+            # print("Frame #{}".format(pose_frame.frame_number))
             print("conf: {}".format(data.tracker_confidence))
             imu_msg = Imu()
             imu_msg.orientation.x = data.rotation.x
