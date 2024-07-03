@@ -12,11 +12,11 @@ class PositionPublisher(Node):
         self.timer = self.create_timer(self.timer_period, self.timer_callback)
 
     def timer_callback(self):
+        msg = Point()
         x = float(input("Enter the x coordinate: "))
         y = float(input("Enter the y coordinate: "))
         z = float(input("Enter the w angle: "))
 
-        msg = Point()
         msg.x = x
         msg.y = y
         msg.z = z
