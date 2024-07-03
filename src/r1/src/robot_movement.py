@@ -25,7 +25,7 @@ class VelocityTransformer(Node):
         self.data["Cmd_vel"] = [msg.linear.x, msg.linear.y, msg.angular.z]
         self.serial_arduino.arser.write(str(self.data).encode())
         self.serial_arduino.ar_read_from_port()
-        # self.get_logger().info('Arduino: "%s"' % str(self.data))
+        self.get_logger().info('Arduino: "%s"' % str(self.data))
         time.sleep(0.2)
         
 def main(args=None):
