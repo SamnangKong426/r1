@@ -21,6 +21,7 @@ class T265Publisher(Node):
         self.config = rs.config()
         self.config.enable_stream(rs.stream.pose)
         self.pipeline.start(self.config)
+        self.first = True
 
     def timer_callback(self):
         frames = self.pipeline.wait_for_frames()
@@ -30,7 +31,9 @@ class T265Publisher(Node):
             # print("Frame #{}".format(pose_frame.frame_number))
             if data.tracker_confidence != 3:
                 print("conf: {}".format(data.tracker_confidence))
-                os.system('clear')
+            elif data.tracker_confidence == 3 and self.first: 
+                print("conf: {}".format(data.tracker_confidence))
+                self.first = False
         
             imu_msg = Imu()
             imu_msg.orientation.x = data.rotation.x
