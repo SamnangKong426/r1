@@ -24,13 +24,15 @@ class OdometryNode(Node):
         self.Ix = 0
         self.Iy = 0
         self.Iw = 0
+        self.run_pos = False
         self.pos_msg = Point()
         self.poseStamped_msg = PoseStamped()
 
     def listener_callback(self, msg: PoseStamped):
         # self.get_logger().info('I heard: "%s"' % str(msg))
         self.poseStamped_msg = msg
-        vx, vy, w = self.set_location(self.pos_msg.x, self.pos_msg.y, self.pos_msg.z)
+        if self.run_pos:
+            vx, vy, w = self.set_location(self.pos_msg.x, self.pos_msg.y, self.pos_msg.z)
         twist = Twist()
         twist.linear.x = vx
         twist.linear.y = vy
@@ -40,6 +42,7 @@ class OdometryNode(Node):
     def locate_cmd_callback(self, msg):
         # self.get_logger().info('I heard: "%s"' % str(msg))
         self.pos_msg = msg
+        self.run_pos = True
 
     def quaternion_to_rpy(self, rs_x, rs_y, rs_z, rs_w):
         w = rs_w
@@ -78,6 +81,7 @@ class OdometryNode(Node):
         if d < 10 and abs(dw) < 10:
             self.Ix = self.Iy = self.Iw = 0
             # print("Stop")
+            self.run_pos = False
             return 0.0, 0.0, 0.0
         # Calculate velocities based on distances to target
 
