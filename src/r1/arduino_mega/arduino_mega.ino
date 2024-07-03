@@ -31,6 +31,7 @@ float r = 63.5;
 
 int gun_ang = 0;
 bool buttonA, buttonB, buttonC, buttonD;
+bool isMidG = false;
 
 float M[4] = { 0, 0, 0, 0 };
 
@@ -50,72 +51,76 @@ void setup() {
 }
 
 void loop() {
-  realSerial();
-  // readSbus();
+  readSbus();
   // Switch G
-  // if (data.ch[10] > 0 && data.ch[10] < 1700) {
-  //   // Joystick X1 Y1 X2
-  //   // remoteControl(data.ch[1], data.ch[0], data.ch[2]);
-  //   remoteControl(data.ch[0], -data.ch[1], data.ch[2]);
+  if (data.ch[10] > 0 && data.ch[10] < 1700) {
+    // Joystick X1 Y1 X2
+    // remoteControl(data.ch[1], data.ch[0], data.ch[2]);
+    remoteControl(data.ch[0], -data.ch[1], data.ch[2]);
 
-  //   // Button A
-  //   if (data.ch[4] > 0 && data.ch[4] < 1700 && !buttonA) {
-  //     debug.println("Button A on");
-  //     digitalWrite(grip1, 1);
-  //     digitalWrite(grip2, 1);
-  //     delay(500);
-  //     digitalWrite(plant, 1);
-  //     buttonA = true;
-  //   } else if (data.ch[4] < 0 && data.ch[4] > -1700) {
-  //     buttonA = false;
-  //   }
+    // // Button A
+    // if (data.ch[4] > 0 && data.ch[4] < 1700 && !buttonA) {
+    //   debug.println("Button A on");
+    //   digitalWrite(grip1, 1);
+    //   digitalWrite(grip2, 1);
+    //   delay(500);
+    //   digitalWrite(plant, 1);
+    //   buttonA = true;
+    // } else if (data.ch[4] < 0 && data.ch[4] > -1700) {
+    //   buttonA = false;
+    // }
 
-  //   // Button B
-  //   if (data.ch[5] > 0 && data.ch[5] < 1700 && !buttonB) {
-  //     debug.println("down");
-  //     digitalWrite(plant, 0);
-  //     delay(500);
-  //     digitalWrite(grip1, 0);
-  //     delay(1000);
-  //     digitalWrite(plant, 1);
-  //     debug.println("up");
-  //     buttonB = true;
-  //     debug.println("Button B on");
-  //   } else if (data.ch[5] < 0 && data.ch[5] > -1700) {
-  //     buttonB = false;
-  //     // debug.println("Button B off");
-  //   }
+    // // Button B
+    // if (data.ch[5] > 0 && data.ch[5] < 1700 && !buttonB) {
+    //   debug.println("down");
+    //   digitalWrite(plant, 0);
+    //   delay(500);
+    //   digitalWrite(grip1, 0);
+    //   delay(1000);
+    //   digitalWrite(plant, 1);
+    //   debug.println("up");
+    //   buttonB = true;
+    //   debug.println("Button B on");
+    // } else if (data.ch[5] < 0 && data.ch[5] > -1700) {
+    //   buttonB = false;
+    //   // debug.println("Button B off");
+    // }
 
-  //   // Button C
-  //   if (data.ch[6] > 0 && data.ch[6] < 1700 && !buttonC) {
-  //     debug.println("Button C on");
-  //     digitalWrite(plant, 0);
-  //     delay(50);
-  //     digitalWrite(grip2, 0);
+    // // Button C
+    // if (data.ch[6] > 0 && data.ch[6] < 1700 && !buttonC) {
+    //   debug.println("Button C on");
+    //   digitalWrite(plant, 0);
+    //   delay(50);
+    //   digitalWrite(grip2, 0);
 
-  //     buttonC = true;
-  //   } else if (data.ch[6] < 0 && data.ch[6] > -1700) {
-  //     buttonC = false;
-  //   }
+    //   buttonC = true;
+    // } else if (data.ch[6] < 0 && data.ch[6] > -1700) {
+    //   buttonC = false;
+    // }
 
-  //   // Button D
-  //   // if (data.ch[7] > 0 && data.ch[7] < 1700) {
-  //   //   debug.println("Button D on");
-  //   //   digitalWrite(grap, 1);
-  //   // } else if({
-  //   //   digitalWrite(grap, 0);
-  //   // }
+    // // Button D
+    // // if (data.ch[7] > 0 && data.ch[7] < 1700) {
+    // //   debug.println("Button D on");
+    // //   digitalWrite(grap, 1);
+    // // } else if({
+    // //   digitalWrite(grap, 0);
+    // // }
 
-  //   // Switch H
-  //   if (data.ch[11] > 0 && data.ch[11] < 1700) {
-  //     digitalWrite(relay, HIGH);
-  //     shotBall(true, data.ch[8]);
-  //   } else if (data.ch[11] == 0) {
-  //     digitalWrite(relay, LOW);
-  //     shotBall(false, 0);
-  //   }
-  // } else {
-  //   remoteControl(0, 0, 0);
-  // }
+    // // Switch H
+    // if (data.ch[11] > 0 && data.ch[11] < 1700) {
+    //   digitalWrite(relay, HIGH);
+    //   shotBall(true, data.ch[8]);
+    // } else if (data.ch[11] == 0) {
+    //   digitalWrite(relay, LOW);
+    //   shotBall(false, 0);
+    // }
+  } else if(data.ch[10] < 0 && data.ch[10] > -1700) {
+    realSerial();
+  } else {
+    if (isMidG == false) {
+      isMidG = true;
+      remoteControl(0, 0, 0);
+    }
+  }
 }
 //=============================================================================================
