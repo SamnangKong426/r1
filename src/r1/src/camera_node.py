@@ -40,7 +40,7 @@ class T265Publisher(Node):
             #     self.first = False
             
             roll, picth , yaw = self.quaternion_to_rpy(data.rotation.x, data.rotation.y, data.rotation.z, data.rotation.w)
-            print("roll: {}, pitch: {}, yaw: {}".format(roll, picth, yaw))
+            # print("roll: {}, pitch: {}, yaw: {}".format(roll, picth, yaw))
             yaw_msg = Float32()
             yaw_msg.data = yaw
             self.publisher_yaw.publish(yaw_msg)
