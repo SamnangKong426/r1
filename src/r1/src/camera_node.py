@@ -30,7 +30,7 @@ class T265Publisher(Node):
         self.first = True
 
         # Kalman filter
-        self.kf = KalmanFilter(process_noise=1, measurement_noise=1, estimated_error=0)
+        self.kf = KalmanFilter(process_noise=0.05, measurement_noise=10, estimated_error=0)
 
 
     def timer_callback(self):
