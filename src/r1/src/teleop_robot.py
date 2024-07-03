@@ -15,9 +15,6 @@ class PositionPublisher(Node):
         x = float(input("Enter the x coordinate: "))
         y = float(input("Enter the y coordinate: "))
         z = float(input("Enter the z coordinate: "))
-        x = 0.0
-        y = 0.0
-        z = 0.0
 
         msg = Point()
         msg.x = x
