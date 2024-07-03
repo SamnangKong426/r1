@@ -7,6 +7,7 @@ from std_msgs.msg import Float32
 from geometry_msgs.msg import PoseStamped
 import pyrealsense2 as rs
 import math as m
+from scipy.spatial.transform import Rotation as R
 
 class T265Publisher(Node):
 
@@ -38,8 +39,8 @@ class T265Publisher(Node):
             #     print("confidence: 3")
             #     self.first = False
             
-            _, _ , yaw = self.quaternion_to_rpy(data.rotation.x, data.rotation.y, data.rotation.z, data.rotation.w)
-            print("Yaw: {}".format(yaw))
+            roll, picth , yaw = self.quaternion_to_rpy(data.rotation.x, data.rotation.y, data.rotation.z, data.rotation.w)
+            print("roll: {}, pitch: {}, yaw: {}".format(roll, picth, yaw))
             yaw_msg = Float32()
             yaw_msg.data = yaw
             self.publisher_yaw.publish(yaw_msg)
@@ -62,15 +63,9 @@ class T265Publisher(Node):
             self.publisher_imu.publish(imu_msg)
             self.publisher_pose.publish(pose_msg)
 
-    def quaternion_to_rpy(self, rs_x, rs_y, rs_z, rs_w):
-        w = rs_w
-        x = -rs_z
-        y = rs_x
-        z = -rs_y
-        pitch =  -m.asin(2.0 * (x*z - w*y)) * 180.0 / m.pi
-        roll  =  m.atan2(2.0 * (w*x + y*z), w*w - x*x - y*y + z*z) * 180.0 / m.pi
-        yaw   =  -m.atan2(2.0 * (w*z + x*y), w*w + x*x - y*y - z*z) * 180.0 / m.pi
-        # print("RPY [deg]: Roll: {0:.7f}, Pitch: {1:.7f}, Yaw: {2:.7f}".format(roll, pitch, yaw))
+    def quaternion_to_rpy(self, x, y, z, w):
+        r = R.from_quat([x, y, z, w])
+        roll, pitch, yaw = r.as_euler('xyz', degrees=True)
         return roll, pitch, yaw
 
 def main(args=None):
