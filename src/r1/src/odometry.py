@@ -33,11 +33,11 @@ class OdometryNode(Node):
         self.poseStamped_msg = msg
         if self.run_pos:
             vx, vy, w = self.set_location(self.pos_msg.x, self.pos_msg.y, self.pos_msg.z)
-        twist = Twist()
-        twist.linear.x = vx
-        twist.linear.y = vy
-        twist.angular.z = w
-        self.publisher.publish(twist)
+            twist = Twist()
+            twist.linear.x = vx
+            twist.linear.y = vy
+            twist.angular.z = w
+            self.publisher.publish(twist)
 
     def locate_cmd_callback(self, msg):
         # self.get_logger().info('I heard: "%s"' % str(msg))
