@@ -58,13 +58,13 @@ void setup() {
   debug.println("Start");
   digitalWrite(gas, 1);
   gun.setMaxSpeed(1000);
-  gun.move(1000);
   
 }
 
 void loop() {
   readSbus();
   readSerial();
+  gun.move(1000);
   gun.run();
   // Switch G
   if (data.ch[10] > 0 && data.ch[10] < 1700) {
