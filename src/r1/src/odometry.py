@@ -11,7 +11,7 @@ from kalmanFilter import KalmanFilter
 class OdometryNode(Node):
     def __init__(self):
         super().__init__('odometryNode')
-        self.publisher = self.create_publisher(Twist, '/cmd_vel', 10)
+        self.publisher = self.create_publisher(Twist, '/cmd_vel', 1)
         self.publisher_picth = self.create_publisher(Float32, '/pitch', 10)
         self.publisher_kalmanPitch = self.create_publisher(Float32, '/kalman_pitch', 10)
         self.subscription = self.create_subscription(

@@ -13,7 +13,7 @@ class VelocityTransformer(Node):
             Twist,
             'cmd_vel',
             self.listener_callback,
-            10)
+            1)
         self.data = {
                 #For Contol Velocity
                 "Cmd_vel": [0, 0, 0]     
