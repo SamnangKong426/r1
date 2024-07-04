@@ -25,15 +25,15 @@ class VelocityTransformer(Node):
     def listener_callback(self, msg):
         def listener_callback(self, msg):
             self.data["Cmd_vel"] = [msg.linear.x, msg.linear.y, msg.angular.z]
-            try:
+            # try:
                 # Ensure the serial buffer is clear before writing
-                self.serial_arduino.arser.reset_output_buffer()
-                self.serial_arduino.arser.write(str(self.data).encode())
-            except serial.SerialTimeoutException as e:
-                self.get_logger().error(f'Write timeout occurred: {e}')
-                # Handle the timeout, e.g., by retrying or logging
-            else:
-                self.get_logger().info('I heard: "%s"' % str(self.data))
+            self.serial_arduino.arser.reset_output_buffer()
+            self.serial_arduino.arser.write(str(self.data).encode())
+            # except serial.SerialTimeoutException as e:
+            #     self.get_logger().error(f'Write timeout occurred: {e}')
+            #     # Handle the timeout, e.g., by retrying or logging
+            # else:
+            #     self.get_logger().info('I heard: "%s"' % str(self.data))
         
 def main(args=None):
     rclpy.init(args=args)
