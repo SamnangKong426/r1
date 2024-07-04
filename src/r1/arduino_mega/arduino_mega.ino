@@ -59,14 +59,14 @@ void setup() {
   delay(500);
   debug.println("Start");
   digitalWrite(gas, 1);
-  gunStepper.moveTo(1000);
-  gunStepper.runSpeedToPosition();
+
 }
 
 void loop() {
   readSbus();
   readSerial();
-  gun.run();
+  gunStepper.moveTo(1000);
+  gunStepper.runSpeedToPosition();
   // Switch G
   if (data.ch[10] > 0 && data.ch[10] < 1700) {
     manualMode();
