@@ -111,7 +111,7 @@ class OdometryNode(Node):
         self.Ix = (self.Ix + dx) * 0.2 # 0.2
         Py = dy * 0.5                   # 0.5
         self.Iy = (self.Iy + dy) * 0.2  # 0.2
-        Pw = dw * 0.04               # 0.1
+        Pw = dw * 0.1               # 0.1
         self.Iw = (self.Iw + dw) * 0.1  # 0.1
         vx = Px + self.Ix
         vy = Py + self.Iy
@@ -122,36 +122,9 @@ class OdometryNode(Node):
         vy = max(vy,-800)
         w = min(w, 45)
         w = max(w, -45)
-        time.sleep(0.1)
-
         # vx, vy = self.next_vel(vx, vy, yaw)
         # self.get_logger().info('Velocity : %s, %s, %s' % (vx, vy, w))
-        return float(vx), float(vy), float(w)
-    
-    # def set_locationv1(self, x, y, w):
-    #     position = self.poseStamped_msg.pose.position
-    #     orientation = self.poseStamped_msg.pose.orientation
-    #     # covert m to mm
-    #     pos_x = position.z * 1000
-    #     pos_z = position.x * 1000
-
-    #     _, _, yaw = self.quaternion_to_rpy(orientation.x, orientation.y, orientation.z, orientation.w)
-    #     # print("Roll: {}, Pitch: {}, Yaw: {}".format(roll, pitch, yaw))
-    #     dx = self.pos_msg.x - pos_x
-    #     dy = self.pos_msg.y - pos_z
-    #     dw = self.pos_msg.z - yaw
-
-    #     d = self.distance(0, 0, dx, dy)
-    #     if abs(d) < 10 and abs(dw) < 2:
-    #         print("Stop")
-    #         self.run_pos = False
-    #         return 0.0, 0.0, 0.0
-
-    #     vx = dx * 0.5
-    #     vy = dy * 0.5 
-    #     w = dw * 0.04 
-    #     return vx, vy, w
-        
+        return float(vx), float(vy), float(w)    
 
 def main(args=None):
     rclpy.init(args=args)
