@@ -57,8 +57,8 @@ void setup() {
   delay(500);
   debug.println("Start");
   digitalWrite(gas, 1);
-  gun.setMaxSpeed(1000);
-  gun.setSpeed(1000);
+  gun.setMaxSpeed(20000);
+  gun.setSpeed(10000);
   gun.move(1000);
   
 }
