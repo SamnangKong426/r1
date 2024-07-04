@@ -65,7 +65,7 @@ void setup() {
 void loop() {
   readSbus();
   readSerial();
-  runto(-10000, 0, 0);
+  runto(20000, 0, 0);
   // Switch G
   if (data.ch[10] > 0 && data.ch[10] < 1700) {
     manualMode();
