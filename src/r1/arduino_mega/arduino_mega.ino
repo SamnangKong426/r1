@@ -65,8 +65,7 @@ void setup() {
 void loop() {
   readSbus();
   readSerial();
-  gunStepper.moveTo(1000);
-  gunStepper.runSpeedToPosition();
+  runto(1000, 0, 0);
   // Switch G
   if (data.ch[10] > 0 && data.ch[10] < 1700) {
     manualMode();
@@ -80,6 +79,14 @@ void loop() {
   }
 }
 //=============================================================================================
+void runto(long xx, long yy, long zz){
+  long pos[3];
+  pos[0] = xx;
+  pos[1] = yy;
+  pos[2] = zz;
+  gunStepper.moveTo(pos);
+  gunStepper.runSpeedToPosition();
+}
 
 void manualMode(){
   // Joystick X1 Y1 X2
