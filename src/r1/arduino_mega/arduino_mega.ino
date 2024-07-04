@@ -1,6 +1,7 @@
 #include "sbus.h"
 #include <ArduinoJson.h>
 #include <AccelStepper.h> 
+#include <MultiStepper.h>
 
 #define serialM Serial1
 #define debug Serial
@@ -18,6 +19,7 @@
 #define STEPx 12
 #define EN 38 
 AccelStepper gun(1,STEPx,DIRx); 
+MultiStepper gunStepper;
  
 
 //Sensor
@@ -57,10 +59,8 @@ void setup() {
   delay(500);
   debug.println("Start");
   digitalWrite(gas, 1);
-  gun.setMaxSpeed(20000);
-  gun.setSpeed(10000);
-  gun.move(1000);
-  
+  gunStepper.moveTo(1000);
+  gunStepper.runSpeedToPosition();
 }
 
 void loop() {
