@@ -1,5 +1,6 @@
 #include "sbus.h"
 #include <ArduinoJson.h>
+#include <AccelStepper.h> 
 
 #define serialM Serial1
 #define debug Serial
@@ -11,6 +12,13 @@
 
 // take ball in r1
 #define relay 4
+
+//stepper
+#define DIRx 13
+#define STEPx 12
+#define EN 38 
+AccelStepper gun(1,STEPx,DIRx); 
+ 
 
 //Sensor
 #define sensor1 36
@@ -53,11 +61,12 @@ void setup() {
 
 void loop() {
   readSbus();
+  readSerial();
   // Switch G
   if (data.ch[10] > 0 && data.ch[10] < 1700) {
-
+    manualMode();
   } else if(data.ch[10] < 0 && data.ch[10] > -1700) {
-    realSerial();
+    pos_run(vx, vy, w);
   } else {
     if (isMidG == false) {
       isMidG = true;

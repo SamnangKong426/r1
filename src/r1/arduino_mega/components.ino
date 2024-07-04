@@ -13,12 +13,14 @@ void init_hardware() {
   pinMode(plant, OUTPUT);
   pinMode(grap, OUTPUT);
   pinMode(grip2, OUTPUT);
+  pinMode(EN, OUTPUT);
 
   digitalWrite(grip1, 0);
   digitalWrite(plant, 0);
   digitalWrite(grap, 0);
   digitalWrite(grip2, 0);
   digitalWrite(gas, 0);
+  digitalWrite(EN, 1);
 
   digitalWrite(relay, LOW);
 

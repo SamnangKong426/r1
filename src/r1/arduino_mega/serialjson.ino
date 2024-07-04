@@ -23,11 +23,11 @@ void serialization() {
   debug.println();
 }
 
-void realSerial() {
+void readSerial() {
   if (Serial.available() > 0) {
     String input = Serial.readString();
     deserialJson(input);
     debug.println(input);
-    pos_run(vx, vy, w);
+    
   }
 }
