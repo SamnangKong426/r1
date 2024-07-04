@@ -14,8 +14,9 @@ class ComArduino:
 
     def ar_read_from_port(self):
         while True:
-            print("Reading from port")
+            # print("Reading from port")
             while self.arser.in_waiting > 0:
+                print("Reading from port")
                 global arrx
                 arrx = self.arser.read(500)
                 self.arser.flushInput()
