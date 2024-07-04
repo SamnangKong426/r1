@@ -125,7 +125,7 @@ class OdometryNode(Node):
         time.sleep(0.1)
 
         # vx, vy = self.next_vel(vx, vy, yaw)
-        self.get_logger().info('Velocity : %s, %s, %s' % (vx, vy, w))
+        # self.get_logger().info('Velocity : %s, %s, %s' % (vx, vy, w))
         return float(vx), float(vy), float(w)
     
     # def set_locationv1(self, x, y, w):
