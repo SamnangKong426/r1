@@ -59,12 +59,13 @@ void setup() {
   digitalWrite(gas, 1);
   gun.setMaxSpeed(1000);
   gun.move(1000);
-  gun.run();
+  
 }
 
 void loop() {
   readSbus();
   readSerial();
+  gun.run();
   // Switch G
   if (data.ch[10] > 0 && data.ch[10] < 1700) {
     manualMode();
