@@ -117,18 +117,18 @@ class OdometryNode(Node):
         Pw = dw * 0.005
         self.Iw = (self.Iw + dw) * 0.005
 
-        Vx = Px+ self.Ix
-        Vy = Py+ self.Iy
-        W = Pw + self.Iw
+        vx = Px+ self.Ix
+        vy = Py+ self.Iy
+        w = Pw + self.Iw
 
-        Vx = min(Vx,800)
-        Vx = max(Vx,-800)
+        vx = min(vx,800)
+        vx = max(vx,-800)
 
-        Vy = min(Vy,800)
-        Vy = max(Vy,-800)
+        vy = min(vy,800)
+        vy = max(vy,-800)
 
-        W = min(W, 45)
-        W= max(W, -45)
+        w = min(w, 45)
+        w= max(w, -45)
         vx, vy = self.next_vel(vx, vy, yaw)
         self.get_logger().info('Velocity : %s, %s, %s' % (vx, vy, w))
         return float(vx), float(vy), float(w)    
