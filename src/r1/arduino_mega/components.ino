@@ -14,7 +14,7 @@ void init_hardware() {
   pinMode(grap, OUTPUT);
   pinMode(grip2, OUTPUT);
   pinMode(EN, OUTPUT);
-  gun.setMaxSpeed(100);
+  gun.setMaxSpeed(800);
   gunStepper.addStepper(gun);
 
 
