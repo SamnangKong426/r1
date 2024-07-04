@@ -104,7 +104,7 @@ class OdometryNode(Node):
             self.Ix = self.Iy = self.Iw = 0
             print("Stop")
             self.run_pos = False
-            # return 0.0, 0.0, 0.0
+            return 0.0, 0.0, 0.0
         # Calculate velocities based on distances to target
 
         Px = dx * 0.5                   # 0.5
