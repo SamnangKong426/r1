@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import serial
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
@@ -23,17 +22,9 @@ class VelocityTransformer(Node):
         th.Thread(target=self.serial_arduino.ar_read_from_port).start()
 
     def listener_callback(self, msg):
-        def listener_callback(self, msg):
-            self.data["Cmd_vel"] = [msg.linear.x, msg.linear.y, msg.angular.z]
-            # try:
-                # Ensure the serial buffer is clear before writing
-            self.serial_arduino.arser.reset_output_buffer()
-            self.serial_arduino.arser.write(str(self.data).encode())
-            # except serial.SerialTimeoutException as e:
-            #     self.get_logger().error(f'Write timeout occurred: {e}')
-            #     # Handle the timeout, e.g., by retrying or logging
-            # else:
-            #     self.get_logger().info('I heard: "%s"' % str(self.data))
+        self.data["Cmd_vel"] = [msg.linear.x, msg.linear.y, msg.angular.z]
+        self.serial_arduino.arser.write(str(self.data).encode())
+        self.get_logger().info('I heard: "%s"' % str(self.data))
         
 def main(args=None):
     rclpy.init(args=args)
