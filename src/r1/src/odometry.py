@@ -37,7 +37,6 @@ class OdometryNode(Node):
         self.kf = KalmanFilter(process_noise=0.05, measurement_noise=50, estimated_error=0)
 
     def listener_callback(self, msg: PoseStamped):
-        # self.get_logger().info('I heard: "%s"' % str(msg))
         self.poseStamped_msg = msg
         if self.run_pos:
             vx, vy, w = self.set_location(self.pos_msg.x, self.pos_msg.y, self.pos_msg.z)
@@ -52,28 +51,27 @@ class OdometryNode(Node):
         self.pos_msg = msg
         self.run_pos = True
 
-    # def quaternion_to_rpy(self, rs_x, rs_y, rs_z, rs_w):
-    #     w = rs_w
-    #     x = -rs_z
-    #     y = -rs_x
-    #     z = rs_y
+    def quaternion_to_rpy(self, rs_x, rs_y, rs_z, rs_w):
+        w = rs_w
+        x = rs_z
+        y = -rs_x
+        z = rs_y
 
-    #     pitch =  -m.asin(2.0 * (x*z - w*y)) * 180.0 / m.pi
-    #     roll  =  m.atan2(2.0 * (w*x + y*z), w*w - x*x - y*y + z*z) * 180.0 / m.pi
-    #     yaw   =  m.atan2(2.0 * (w*z + x*y), w*w + x*x - y*y - z*z) * 180.0 / m.pi
-    #     # print("RPY [deg]: Roll: {0:.7f}, Pitch: {1:.7f}, Yaw: {2:.7f}".format(roll, pitch, yaw))
-    #     return roll, pitch, yaw
-    
-    def quaternion_to_rpy(self, x, y, z, w):
-        r = R.from_quat([x, y, z, w])
-        roll, pitch, yaw = r.as_euler('xyz', degrees=True)
+        pitch =  -m.asin(2.0 * (x*z - w*y)) * 180.0 / m.pi
+        roll  =  m.atan2(2.0 * (w*x + y*z), w*w - x*x - y*y + z*z) * 180.0 / m.pi
+        yaw   =  m.atan2(2.0 * (w*z + x*y), w*w + x*x - y*y - z*z) * 180.0 / m.pi
+        # print("RPY [deg]: Roll: {0:.7f}, Pitch: {1:.7f}, Yaw: {2:.7f}".format(roll, pitch, yaw))
         return roll, pitch, yaw
+    
+    # def quaternion_to_rpy(self, x, y, z, w):
+    #     r = R.from_quat([x, y, z, w])
+    #     roll, pitch, yaw = r.as_euler('xyz', degrees=True)
+    #     return roll, pitch, yaw
 
     
     def next_vel(self, vx, vy, yaw):
         next_vx = (vx * m.cos(m.radians(yaw))) + (vy * m.sin(m.radians(yaw)))
         next_vy = -(vx * m.sin(m.radians(yaw))) + (vy * m.cos(m.radians(yaw)))
-        # print("Next_vx: {}, Next_vy: {}".format(next_vx, next_vy))
         return next_vx, next_vy
     
     def distance(self, x1, y1, x2, y2):
@@ -83,12 +81,18 @@ class OdometryNode(Node):
         position = self.poseStamped_msg.pose.position
         orientation = self.poseStamped_msg.pose.orientation
         # covert m to mm
+        _, _, yaw = self.quaternion_to_rpy(orientation.x, orientation.y, orientation.z, orientation.w)
+        offsetX = 0.325 * m.cos(m.radians(self.yaw))
+        offsetY = 0.325 * m.sin(m.radians(self.yaw))
+
+        position.z += offsetX
+        position.x += offsetY
+
         pos_x = position.z * 1000
         pos_y = position.x * 1000
-        _, pitch, yaw = self.quaternion_to_rpy(orientation.x, orientation.y, orientation.z, orientation.w)
         # Kalman filter
         self.kf.predict()
-        self.kf.update(pitch)
+        self.kf.update(yaw)
         pitch = self.kf.state
         # print("Roll: {}, Pitch: {}, Yaw: {}".format(roll, pitch, yaw))
         # self.kf.predict()
@@ -96,7 +100,7 @@ class OdometryNode(Node):
         # pitch = self.kf.state
         dx = self.pos_msg.x - pos_x
         dy = self.pos_msg.y - pos_y
-        dw = self.pos_msg.z - pitch
+        dw = self.pos_msg.z - yaw
         # Calculate distances to target
         d = self.distance(0, 0, dx, dy)
         # If the robot is close enough to the target, stop moving
@@ -106,27 +110,28 @@ class OdometryNode(Node):
             self.run_pos = False
             return 0.0, 0.0, 0.0
         # Calculate velocities based on distances to target
+        Px = dx * 0.5
+        self.Ix = (self.Ix + dx) * 0.2
+        Py = dy * 0.5
+        self.Iy = (self.Iy + dy) * 0.2
+        Pw = dw * 0.005
+        self.Iw = (self.Iw + dw) * 0.005
 
-        Px = dx * 0.5                   # 0.5
-        self.Ix = (self.Ix + dx) * 0.2 # 0.2
-        Py = dy * 0.5                   # 0.5
-        self.Iy = (self.Iy + dy) * 0.2  # 0.2
-        Pw = dw * 0.1               # 0.1
-        self.Iw = (self.Iw + dw) * 0.1  # 0.1
-        vx = Px + self.Ix
-        vy = Py + self.Iy
-        w = Pw + self.Iw
-        vx = min(vx,800)
-        vx = max(vx,-800)
-        vy = min(vy,800)
-        vy = max(vy,-800)
-        w = min(w, 45)
-        w = max(w, -45)
-        w = 0
-        # vx, vy = self.next_vel(vx, vy, yaw)
-        # self.get_logger().info('Velocity : %s, %s, %s' % (vx, vy, w))
+        Vx = Px+ self.Ix
+        Vy = Py+ self.Iy
+        W = Pw + self.Iw
+
+        Vx = min(Vx,800)
+        Vx = max(Vx,-800)
+
+        Vy = min(Vy,800)
+        Vy = max(Vy,-800)
+
+        W = min(W, 45)
+        W= max(W, -45)
+        vx, vy = self.next_vel(vx, vy, yaw)
+        self.get_logger().info('Velocity : %s, %s, %s' % (vx, vy, w))
         return float(vx), float(vy), float(w)    
-
 def main(args=None):
     rclpy.init(args=args)
     odometry_node = OdometryNode()

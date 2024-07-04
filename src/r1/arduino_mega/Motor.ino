@@ -95,7 +95,7 @@ void remoteControl(int _vx, int _vy, int _w) {
 
 void pos_run(double _vx, double _vy, double ang) {
   double w1, w2, w3, w4, _w;
-  _w = radians(ang);
+  // _w = radians(ang);
 
   w1 = degrees(((_vx + _vy) - (_w * (lx + ly))) / r);
   w2 = degrees(((_vx - _vy) + (_w * (lx + ly))) / r);
