@@ -19,7 +19,7 @@ class T265Publisher(Node):
         self.publisher_pose = self.create_publisher(PoseStamped, 'camera/pose/sample', 10)
         self.publisher_pitch = self.create_publisher(Float32, 'camera/pitch', 10)
         self.publisher_pitchKalman = self.create_publisher(Float32, 'camera/pitchKalman', 10)
-        self.timer_period = 0.2  # seconds
+        self.timer_period = 0.3  # seconds
         self.timer = self.create_timer(self.timer_period, self.timer_callback)
 
         # Configure the T265 camera
