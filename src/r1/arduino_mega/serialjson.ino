@@ -11,13 +11,6 @@ void deserialJson(String input) {
   vx = cmd_vel[0];
   vy = cmd_vel[1];
   w = cmd_vel[2];
-
-  debug.print("Vx:");
-  debug.print(vx);
-  debug.print(", Vy:");
-  debug.print(vy);
-  debug.print(", W:");
-  debug.println(w);
 }
 
 void serialization() {
@@ -34,7 +27,7 @@ void realSerial() {
   if (Serial.available() > 0) {
     String input = Serial.readString();
     deserialJson(input);
-    // debug.println(input);
+    debug.println(input);
     pos_run(vx, vy, w);
   }
 }
