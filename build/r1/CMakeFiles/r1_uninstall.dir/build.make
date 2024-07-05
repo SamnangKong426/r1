@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tong/robocon_ws/r1_ws/src/r1
+CMAKE_SOURCE_DIR = /home/tong/r1_ws/src/r1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tong/robocon_ws/r1_ws/build/r1
+CMAKE_BINARY_DIR = /home/tong/r1_ws/build/r1
 
 # Utility rule file for r1_uninstall.
 
@@ -67,7 +67,7 @@ include CMakeFiles/r1_uninstall.dir/compiler_depend.make
 include CMakeFiles/r1_uninstall.dir/progress.make
 
 CMakeFiles/r1_uninstall:
-	/usr/bin/cmake -P /home/tong/robocon_ws/r1_ws/build/r1/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+	/usr/bin/cmake -P /home/tong/r1_ws/build/r1/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
 
 r1_uninstall: CMakeFiles/r1_uninstall
 r1_uninstall: CMakeFiles/r1_uninstall.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/r1_uninstall.dir/clean:
 .PHONY : CMakeFiles/r1_uninstall.dir/clean
 
 CMakeFiles/r1_uninstall.dir/depend:
-	cd /home/tong/robocon_ws/r1_ws/build/r1 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tong/robocon_ws/r1_ws/src/r1 /home/tong/robocon_ws/r1_ws/src/r1 /home/tong/robocon_ws/r1_ws/build/r1 /home/tong/robocon_ws/r1_ws/build/r1 /home/tong/robocon_ws/r1_ws/build/r1/CMakeFiles/r1_uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/tong/r1_ws/build/r1 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tong/r1_ws/src/r1 /home/tong/r1_ws/src/r1 /home/tong/r1_ws/build/r1 /home/tong/r1_ws/build/r1 /home/tong/r1_ws/build/r1/CMakeFiles/r1_uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/r1_uninstall.dir/depend
 

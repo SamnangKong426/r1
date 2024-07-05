@@ -1,4 +1,0 @@
-Invoking command in '/home/tong/robocon_ws/r1_ws/build/r1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tong/robocon_ws/r1_ws/install/joy_tester:/opt/ros/foxy /usr/bin/cmake --build /home/tong/robocon_ws/r1_ws/build/r1 -- -j12 -l12
-Invoked command in '/home/tong/robocon_ws/r1_ws/build/r1' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tong/robocon_ws/r1_ws/install/joy_tester:/opt/ros/foxy /usr/bin/cmake --build /home/tong/robocon_ws/r1_ws/build/r1 -- -j12 -l12
-Invoking command in '/home/tong/robocon_ws/r1_ws/build/r1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tong/robocon_ws/r1_ws/install/joy_tester:/opt/ros/foxy /usr/bin/cmake --install /home/tong/robocon_ws/r1_ws/build/r1
-Invoked command in '/home/tong/robocon_ws/r1_ws/build/r1' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tong/robocon_ws/r1_ws/install/joy_tester:/opt/ros/foxy /usr/bin/cmake --install /home/tong/robocon_ws/r1_ws/build/r1

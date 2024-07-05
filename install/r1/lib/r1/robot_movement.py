@@ -13,7 +13,7 @@ class VelocityTransformer(Node):
             Twist,
             'cmd_vel',
             self.listener_callback,
-            10)
+            1)
         self.data = {
                 #For Contol Velocity
                 "Cmd_vel": [0, 0, 0]     
@@ -24,8 +24,7 @@ class VelocityTransformer(Node):
     def listener_callback(self, msg):
         self.data["Cmd_vel"] = [msg.linear.x, msg.linear.y, msg.angular.z]
         self.serial_arduino.arser.write(str(self.data).encode())
-        # self.get_logger().info('I heard: "%s"' % str(self.data))
-        time.sleep(0.2)
+        self.get_logger().info('I heard: "%s"' % str(self.data))
         
 def main(args=None):
     rclpy.init(args=args)
